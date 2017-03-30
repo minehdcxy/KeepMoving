@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Keep Moving</string>
+    <string name="bt_guide_start_text">开跑</string>
 </resources>
