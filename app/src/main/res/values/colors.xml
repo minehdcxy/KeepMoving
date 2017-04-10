@@ -7,6 +7,9 @@
     <color name="white">#ffffff</color>
     <color name="yellow">#FFCC66</color>
     <color name="dark_yellow">#FFCC00</color>
+    <color name="dark_green">#009966</color>
+    <color name="dark_transparent">#d0000000</color>
+    <color name="low_black">#999999</color> <!-- 字体  浅黑 -->
 
     <color name="black_overlay">#66000000</color>
 </resources>
