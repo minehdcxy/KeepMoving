@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.example.raytine.keepmoving.R;
-import com.example.raytine.keepmoving.login.LoginAcitivity;
+import com.example.raytine.keepmoving.login.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         if (preferences.getBoolean(IS_FIRST_INSTALL, false)) {
             guide.setVisibility(View.VISIBLE);
             pager.setVisibility(View.GONE);
-            final Intent intent = new Intent(MainActivity.this, LoginAcitivity.class);
+            final Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             startButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(MainActivity.this, LoginAcitivity.class);
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                 }

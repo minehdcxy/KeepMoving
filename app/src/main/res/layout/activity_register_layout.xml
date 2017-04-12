@@ -45,7 +45,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
-                    android:hint="请输入已验证的手机号"
+                    android:hint="请输入手机号"
                     android:paddingLeft="5dp"
                     android:textSize="15sp"
                     android:inputType="phone"
@@ -74,37 +74,62 @@
                 </LinearLayout>
 
                 <EditText
-                    android:layout_width="match_parent"
+                    android:layout_width="150dp"
                     android:layout_height="49dp"
                     android:background="#40000000"
-                    android:hint="请输入密码"
+                    android:hint="请输入验证码"
                     android:paddingLeft="5dp"
                     android:textSize="15sp"
                     android:inputType="textPassword"
                     android:textColorHint="@color/low_black"
                     android:id="@+id/editText" />
+                <TextView
+                    android:layout_height="30dp"
+                    android:layout_width="1dp" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_height="match_parent"
+                    android:background="#40000000"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="30dp"
+                        android:background="@color/dark_green" />
+
+                </RelativeLayout>
+                <TextView
+                    android:background="#40000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:textColor="@color/dark_green"
+                    android:gravity="center"
+                    android:text="获取验证码"/>
+
             </LinearLayout>
 
         </RelativeLayout>
         <Button
-            android:id="@+id/bt_login"
+            android:id="@+id/bt_register"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="240dp"
-            android:text="登录"
+            android:text="注册"
+            android:alpha="0.3"
             android:textColor="@color/white"
             android:background="@drawable/bt_login_background"/>
         <Button
-            android:id="@+id/bt_quickly_register"
+            android:id="@+id/bt_return_login"
             android:layout_width="300dp"
             android:layout_height="40dp"
-            android:alpha="0.3"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="195dp"
-            android:text="快速注册,享受旅途生活"
+            android:text="返回登录"
             android:textColor="@color/white"
             android:background="@drawable/bt_login_background"/>
 
