@@ -43,6 +43,7 @@
                 </LinearLayout>
 
                 <EditText
+                    android:id="@+id/et_login_phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:hint="请输入已验证的手机号"
@@ -74,15 +75,16 @@
                 </LinearLayout>
 
                 <EditText
+                    android:id="@+id/et_login_password"
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:background="#40000000"
                     android:hint="请输入密码"
                     android:paddingLeft="5dp"
                     android:textSize="15sp"
+                    android:textColor="@color/low_black"
                     android:inputType="textPassword"
-                    android:textColorHint="@color/low_black"
-                    android:id="@+id/editText" />
+                    android:textColorHint="@color/low_black" />
             </LinearLayout>
 
         </RelativeLayout>
