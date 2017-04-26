@@ -32,7 +32,7 @@ class RegisterPresenter implements RegisterContract.Presenter {
             }
 
             @Override
-            public void fialed(String msg) {
+            public void failed(String msg) {
                 registerView.registerFailed(msg);
             }
         });

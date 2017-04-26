@@ -60,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     } finally {
-                        startActivity(intent);
+                        if(preferences.getBoolean("isHaveAccount", false)){
+                            Log.i("mine", "sss");
+                        }else{
+                            startActivity(intent);
+                        }
                         finish();
                     }
                 }

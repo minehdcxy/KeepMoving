@@ -46,7 +46,7 @@ public class RegisterApi {
                     result.successfully("验证成功");
 
                 } else {
-                    result.fialed(String.valueOf(e));
+                    result.failed(String.valueOf(e));
                 }
             }
         });

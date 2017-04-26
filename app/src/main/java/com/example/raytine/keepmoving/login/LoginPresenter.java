@@ -27,7 +27,7 @@ class LoginPresenter implements LoginContract.Presenter {
             }
 
             @Override
-            public void fialed(String msg) {
+            public void failed(String msg) {
                 view.loginFailed(msg);
             }
         });

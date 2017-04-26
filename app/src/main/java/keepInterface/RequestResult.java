@@ -6,5 +6,5 @@ package keepInterface;
 
 public interface RequestResult {
     void successfully(String msg);
-    void fialed(String msg);
+    void failed(String msg);
 }

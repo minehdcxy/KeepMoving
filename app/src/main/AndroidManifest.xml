@@ -47,10 +47,7 @@
         </activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".register.RegisterActivity" />
-        <activity
-            android:name=".home.HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".home.HomeActivity" />
     </application>
 
 </manifest>

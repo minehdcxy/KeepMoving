@@ -1,6 +1,7 @@
 package com.example.raytine.keepmoving.login;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -20,12 +21,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private LoginContract.Presenter presenter;
     private EditText phoneNumber;
     private EditText password;
+    private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_acitivity);
         new LoginPresenter(this);
+        preferences = this.getPreferences(MODE_PRIVATE);
         if (Build.VERSION.SDK_INT > 21) {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
@@ -53,6 +56,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
             case R.id.bt_login:
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("isHaveAccount", true);
+                editor.putString("username", phoneNumber.getText().toString());
+                editor.putString("password", password.getText().toString());
+                editor.commit();
                 presenter.login(phoneNumber.getText().toString(), password.getText().toString());
                 break;
         }
@@ -68,6 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
