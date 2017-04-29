@@ -3,25 +3,21 @@ package com.example.raytine.keepmoving.home;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
-import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.example.raytine.keepmoving.R;
 
+public class HomeActivity extends ActionBarActivity{
 
+    private final String TAG = HomeActivity.class.getSimpleName();
 
-/**
- * Created by raytine on 2017/4/17.
- */
-
-public class HomeActivity extends ActionBarActivity {
-    private SliderLayout sliderLayout;
     private Toolbar toolbar;
-    private int[] imgurl = new int[]{R.drawable.image_one,
-            R.drawable.image_two, R.drawable.image_three};
-
+    private ImageView homeIv, userIv;
+    private HomeFragment homeFragment;
+    private UserFragment userFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +28,48 @@ public class HomeActivity extends ActionBarActivity {
     }
 
     private void initViews() {
-        sliderLayout = (SliderLayout) findViewById(R.id.slider);
-        for (int url : imgurl) {
-            TextSliderView customSliderView = new TextSliderView(this);
-            customSliderView
-                    .image(url)
-                    .setScaleType(BaseSliderView.ScaleType.Fit);
-            sliderLayout.addSlider(customSliderView);
-        }
-        sliderLayout.setPresetTransformer(SliderLayout.Transformer.ZoomOut);
-        sliderLayout.setCustomAnimation(new DescriptionAnimation());
-        sliderLayout.setDuration(2000);
         toolbar = (Toolbar) findViewById(R.id.home_view_toolbar);
+        homeIv = (ImageView) findViewById(R.id.home_iv);
+        userIv = (ImageView) findViewById(R.id.home_user);
 
+        if (null == homeFragment) {
+            homeFragment = new HomeFragment();
+        }
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_home, homeFragment)
+                .commit();
 
+        homeIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeIv.setImageResource(R.drawable.ic_tab_home_blue);
+                userIv.setImageResource(R.drawable.ic_tab_my);
+
+                if (null == homeFragment) {
+                    homeFragment = new HomeFragment();
+                }
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fl_home, homeFragment)
+                        .commit();
+            }
+        });
+
+        userIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeIv.setImageResource(R.drawable.ic_tab_home);
+                userIv.setImageResource(R.drawable.ic_tab_my_blue);
+
+                if (null == userFragment) {
+                    userFragment = new UserFragment();
+                }
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fl_home, userFragment)
+                        .commit();
+            }
+        });
     }
 }
