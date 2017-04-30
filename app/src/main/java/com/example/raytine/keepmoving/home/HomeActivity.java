@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.raytine.keepmoving.R;
 
@@ -17,12 +19,16 @@ public class HomeActivity extends ActionBarActivity {
     private ImageView homeIv, userIv;
     private HomeFragment homeFragment;
     private UserFragment userFragment;
-
+    private TextView homeTab;
+    private TextView personalTab;
+    private LinearLayout homeTabLinearLayout;
+    private LinearLayout personalTabLinearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initViews();
+
 
     }
 
@@ -54,6 +60,10 @@ public class HomeActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.home_view_toolbar);
         homeIv = (ImageView) findViewById(R.id.home_iv);
         userIv = (ImageView) findViewById(R.id.home_user);
+        homeTab = (TextView) findViewById(R.id.tv_home_tab);
+        personalTab = (TextView) findViewById(R.id.tv_personal_tab);
+        homeTabLinearLayout = (LinearLayout) findViewById(R.id.ll_home_tab);
+        personalTabLinearLayout = (LinearLayout) findViewById(R.id.ll_home_personal);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (null == homeFragment) {
             homeFragment = new HomeFragment();
@@ -62,20 +72,24 @@ public class HomeActivity extends ActionBarActivity {
             transaction.show(homeFragment);
         }
 
-        homeIv.setOnClickListener(new View.OnClickListener() {
+        homeTabLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 homeIv.setImageResource(R.drawable.ic_tab_home_blue);
                 userIv.setImageResource(R.drawable.ic_tab_my);
+                homeTab.setTextColor(getResources().getColor(R.color.dark_green));
+                personalTab.setTextColor(getResources().getColor(R.color.avoscloud_feedback_text_gray));
                 setSelectPager(0);
             }
         });
 
-        userIv.setOnClickListener(new View.OnClickListener() {
+        personalTabLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 homeIv.setImageResource(R.drawable.ic_tab_home);
                 userIv.setImageResource(R.drawable.ic_tab_my_blue);
+                homeTab.setTextColor(getResources().getColor(R.color.avoscloud_feedback_text_gray));
+                personalTab.setTextColor(getResources().getColor(R.color.dark_green));
                 setSelectPager(1);
             }
         });
