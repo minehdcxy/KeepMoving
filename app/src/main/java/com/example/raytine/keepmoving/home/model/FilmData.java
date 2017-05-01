@@ -7,6 +7,8 @@ package com.example.raytine.keepmoving.home.model;
 public class FilmData {
     private String filmName;
     private String filmIntrodution;
+    private String filmPrice;
+    private String filmImage;
 
     public String getFilmPrice() {
         return filmPrice;
@@ -40,6 +42,5 @@ public class FilmData {
         this.filmImage = filmImage;
     }
 
-    private String filmPrice;
-    private String filmImage;
+
 }

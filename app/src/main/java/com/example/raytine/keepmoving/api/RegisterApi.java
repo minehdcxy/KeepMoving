@@ -43,7 +43,7 @@ public class RegisterApi {
             @Override
             public void done(AVException e) {
                 if(e == null){
-                    result.successfully("验证成功");
+                    result.successfully("验证成功", null);
 
                 } else {
                     result.failed(String.valueOf(e));

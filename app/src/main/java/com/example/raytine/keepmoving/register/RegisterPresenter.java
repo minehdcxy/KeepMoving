@@ -2,6 +2,8 @@ package com.example.raytine.keepmoving.register;
 
 import com.example.raytine.keepmoving.api.RegisterApi;
 
+import java.util.List;
+
 import keepInterface.RequestResult;
 
 /**
@@ -27,7 +29,7 @@ class RegisterPresenter implements RegisterContract.Presenter {
     public void validate(String phoneNumber, String code) {
         registerApi.validate(code, new RequestResult() {
             @Override
-            public void successfully(String msg) {
+            public void successfully(String msg, List<Object> objectList) {
                 registerView.registerSuccess(msg);
             }
 

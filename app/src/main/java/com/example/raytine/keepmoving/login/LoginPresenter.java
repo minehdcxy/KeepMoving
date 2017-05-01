@@ -2,6 +2,8 @@ package com.example.raytine.keepmoving.login;
 
 import com.example.raytine.keepmoving.api.LoginApi;
 
+import java.util.List;
+
 import keepInterface.RequestResult;
 
 /**
@@ -22,7 +24,7 @@ class LoginPresenter implements LoginContract.Presenter {
     public void login(String phoneNumber, String password) {
         api.login(phoneNumber, password, new RequestResult() {
             @Override
-            public void successfully(String msg) {
+            public void successfully(String msg, List<Object> objectList) {
                 view.loginSuccess(msg);
             }
 

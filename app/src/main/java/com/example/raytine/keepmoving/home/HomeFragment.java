@@ -58,6 +58,7 @@ public class HomeFragment extends Fragment {
     private void initViews(View view) {
         tabLayout = (TabLayout) view.findViewById(R.id.tl_home);
         pager = (ViewPager) view.findViewById(R.id.vp_home);
+        pager.setOffscreenPageLimit(3);
     }
 
 

@@ -22,7 +22,7 @@ public class LoginApi {
             @Override
             public void done(AVUser avUser, AVException e) {
                 if(e == null){
-                    result.successfully("登录成功");
+                    result.successfully("登录成功", null);
                 }else{
                     Log.i(TAG,String.valueOf(e));
                 }

@@ -28,31 +28,27 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by raytine on 2017/4/30.
  */
 
-public class RecommendFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener{
+public class RecommendFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener, RecommendContract.View {
     private ListView listView;
     private TextView searchButton;
     private EditText searchContent;
     private List<FilmData> filmDataList = new ArrayList<>();
 
+    private RecommendContract.Presenter presenter;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home_recommend, container, false);
+        new RecommendPresenter(this);
         initViews(view);
         initDatas();
-        FilmAdapter adapter = new FilmAdapter(getActivity(), R.layout.film_item, filmDataList);
-        listView.setAdapter(adapter);
+
         return view;
     }
 
     private void initDatas() {
-        for (int i = 0 ;i<10;i++){
-            FilmData filmData = new FilmData();
-            filmData.setFilmName("致青春2");
-            filmData.setFilmIntrodution("这是个凄美的爱情故事，男猪脚的名字叫梁春凤，女猪脚的名字叫马冬梅");
-            filmData.setFilmPrice("105元");
-            filmDataList.add(filmData);
-        }
+        presenter.searchAllFilm();
     }
 
     private void initViews(View view) {
@@ -66,7 +62,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.tv_recommend_search_button:
                 break;
             case R.id.et_recommend_search_content:
@@ -80,7 +76,21 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
         startActivity(intent);
     }
 
-    public class FilmAdapter extends ArrayAdapter<FilmData>{
+    @Override
+    public void setPresenter(RecommendContract.Presenter var) {
+        this.presenter = var;
+    }
+
+    @Override
+    public void successfully(List<Object> objectList) {
+        for (int i = 0; i < objectList.size(); i++) {
+            filmDataList.add(i, (FilmData)objectList.get(i));
+        }
+        FilmAdapter adapter = new FilmAdapter(getActivity(), R.layout.film_item, filmDataList);
+        listView.setAdapter(adapter);
+    }
+
+    public class FilmAdapter extends ArrayAdapter<FilmData> {
         private Context context;
         private List<FilmData> filmDataList;
 
@@ -100,7 +110,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
             FilmHolder holder;
-            if(convertView == null){
+            if (convertView == null) {
                 view = LayoutInflater.from(context).inflate(R.layout.film_item, null);
                 holder = new FilmHolder();
                 holder.imageView = (CircleImageView) view.findViewById(R.id.film_image);
@@ -108,7 +118,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
                 holder.filmIntrodution = (TextView) view.findViewById(R.id.tv_film_introduction);
                 holder.filmPrice = (TextView) view.findViewById(R.id.tv_film_price);
                 view.setTag(holder);
-            }else{
+            } else {
                 view = convertView;
                 holder = (FilmHolder) view.getTag();
             }
@@ -118,7 +128,8 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
             return view;
         }
     }
-    class FilmHolder{
+
+    class FilmHolder {
         CircleImageView imageView;
         TextView filmName;
         TextView filmIntrodution;
