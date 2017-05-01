@@ -37,8 +37,7 @@ class LoginPresenter implements LoginContract.Presenter {
 
 
     @Override
-    public void destory() {
+    public void destroy() {
 
     }
-
 }

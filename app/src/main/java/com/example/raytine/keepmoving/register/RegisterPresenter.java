@@ -40,9 +40,9 @@ class RegisterPresenter implements RegisterContract.Presenter {
         });
     }
 
+
     @Override
-    public void destory() {
+    public void destroy() {
 
     }
-
 }

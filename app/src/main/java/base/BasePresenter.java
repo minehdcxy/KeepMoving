@@ -5,5 +5,5 @@ package base;
  */
 
 public interface BasePresenter {
-    void destory();
+    void destroy();
 }

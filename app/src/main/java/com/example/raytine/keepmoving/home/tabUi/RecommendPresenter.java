@@ -39,7 +39,7 @@ public class RecommendPresenter implements RecommendContract.Presenter{
     }
 
     @Override
-    public void destory() {
+    public void destroy() {
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.raytine.keepmoving.user;
+package com.example.raytine.keepmoving.user.info;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.raytine.keepmoving.R;
+import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
+import com.example.raytine.keepmoving.user.model.User;
 
-public class ActivityUserInfo extends ActionBarActivity implements View.OnClickListener{
+public class ActivityUserInfo extends ActionBarActivity implements View.OnClickListener, UserInfoContract.View {
 
     private final String TAG = ActivityUserInfo.class.getSimpleName();
 
@@ -22,12 +25,17 @@ public class ActivityUserInfo extends ActionBarActivity implements View.OnClickL
     private EditText userAddressEt;
     private boolean isEditing;
 
+    private UserInfoContract.Presenter presenter;
+    private User user;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
+        presenter = new UserInfoPresenter(this);
         initViews();
+        initData();
     }
 
     private void initViews() {
@@ -40,6 +48,14 @@ public class ActivityUserInfo extends ActionBarActivity implements View.OnClickL
 
         userInfoBackIv.setOnClickListener(this);
         userInfoEditTv.setOnClickListener(this);
+    }
+
+    private void initData() {
+        User user = MyLeanCloudApplication.getIns().getUser();
+        userNicknameEt.setText(user.getNickname());
+        userGenderEt.setText(user.getGender());
+        userAgeEt.setText(String.valueOf(user.getAge()));
+        userAddressEt.setText(user.getAddress());
     }
 
     @Override
@@ -56,6 +72,13 @@ public class ActivityUserInfo extends ActionBarActivity implements View.OnClickL
                     userAddressEt.setEnabled(false);
                     isEditing = false;
                     userInfoEditTv.setText("编辑");
+                    user = new User();
+                    user.setObjectId(MyLeanCloudApplication.getIns().getUser().getObjectId());
+                    user.setNickname(userNicknameEt.getText().toString());
+                    user.setGender(userGenderEt.getText().toString());
+                    user.setAge(Integer.parseInt(userAgeEt.getText().toString()));
+                    user.setAddress(userAddressEt.getText().toString());
+                    presenter.update(user);
                 } else {
                     userNicknameEt.setEnabled(true);
                     userGenderEt.setEnabled(true);
@@ -63,8 +86,36 @@ public class ActivityUserInfo extends ActionBarActivity implements View.OnClickL
                     userAddressEt.setEnabled(true);
                     isEditing = true;
                     userInfoEditTv.setText("完成");
+
                 }
                 break;
         }
+    }
+
+    @Override
+    public void updateSuccess() {
+        Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
+        User currUser = MyLeanCloudApplication.getIns().getUser();
+        currUser.setNickname(user.getNickname());
+        currUser.setGender(user.getGender());
+        currUser.setAge(user.getAge());
+        currUser.setAddress(user.getAddress());
+        MyLeanCloudApplication.getIns().setUser(currUser);
+    }
+
+    @Override
+    public void updateFailed() {
+        Toast.makeText(this, "修改失败", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setPresenter(UserInfoContract.Presenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    protected void onDestroy() {
+        presenter.destroy();
+        super.onDestroy();
     }
 }

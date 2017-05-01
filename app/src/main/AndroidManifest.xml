@@ -48,11 +48,12 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".home.HomeActivity" />
-        <activity android:name=".user.ActivityUserInfo" />
+        <activity android:name=".user.info.ActivityUserInfo" />
         <activity android:name=".user.ActivityUserWallet" />
         <activity android:name=".user.ActivityUserCard" />
         <activity android:name=".user.ActivityUserAdvise" />
         <activity android:name=".filmDetail.FilmDetailActivity" />
+        <activity android:name=".user.ActivityUserManage" />
     </application>
 
 </manifest>

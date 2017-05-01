@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
 import com.example.raytine.keepmoving.login.LoginActivity;
+import com.example.raytine.keepmoving.user.info.ActivityUserInfo;
 import com.example.raytine.keepmoving.user.model.User;
 
 public class UserFragment extends Fragment implements View.OnClickListener {
@@ -84,7 +85,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 startActivity(infoIntent);
                 break;
             case R.id.user_manage_ll:
-//                Intent manageIntent = new Intent(getActivity(), )
+                Intent manageIntent = new Intent(getActivity(), ActivityUserManage.class);
+                startActivity(manageIntent);
                 break;
             case R.id.user_wallet_ll:
                 Intent walletIntent = new Intent(getActivity(), ActivityUserWallet.class);
@@ -99,6 +101,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
                 startActivity(adviseIntent);
                 break;
             case R.id.user_exit_tv:
+                MyLeanCloudApplication.getIns().setUser(null);
                 Intent exitIntent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(exitIntent);
                 break;
