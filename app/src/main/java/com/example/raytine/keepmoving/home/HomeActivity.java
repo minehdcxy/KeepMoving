@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.raytine.keepmoving.R;
+import com.example.raytine.keepmoving.user.UserFragment;
 
 public class HomeActivity extends ActionBarActivity {
 

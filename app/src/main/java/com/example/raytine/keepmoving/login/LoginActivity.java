@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.raytine.keepmoving.R;
+import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
 import com.example.raytine.keepmoving.home.HomeActivity;
 import com.example.raytine.keepmoving.register.RegisterActivity;
 
@@ -45,6 +46,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         quicklyRegister = (Button) findViewById(R.id.bt_quickly_register);
         quicklyRegister.setOnClickListener(this);
         login.setOnClickListener(this);
+
+        if (MyLeanCloudApplication.isDebug) {
+            phoneNumber.setText("15846577415");
+            password.setText("123456");
+        }
     }
 
     @Override
