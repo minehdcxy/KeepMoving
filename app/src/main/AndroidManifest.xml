@@ -52,6 +52,7 @@
         <activity android:name=".user.ActivityUserWallet" />
         <activity android:name=".user.ActivityUserCard" />
         <activity android:name=".user.ActivityUserAdvise" />
+        <activity android:name=".filmDetail.FilmDetailActivity" />
     </application>
 
 </manifest>

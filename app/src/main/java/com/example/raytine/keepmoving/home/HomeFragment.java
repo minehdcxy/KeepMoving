@@ -4,20 +4,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.raytine.keepmoving.R;
+import com.example.raytine.keepmoving.home.tabUi.RecommendFragment;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import adapter.HomeFragmentAdapter;
 
 
 public class HomeFragment extends Fragment {
     private TabLayout tabLayout;
     private ViewPager pager;
-    private List<View> viewList = new ArrayList<>();
+    private List<Fragment> viewList = new ArrayList<>();
     private List<String> tabList = new ArrayList<>();
 
     @Nullable
@@ -27,17 +30,17 @@ public class HomeFragment extends Fragment {
         initViews(view);
         initViewList();
         initTabTitle();
-        TabPagerAdapter adapter = new TabPagerAdapter();
+        HomeFragmentAdapter adapter = new HomeFragmentAdapter(getChildFragmentManager(), viewList, tabList);
         pager.setAdapter(adapter);
         tabLayout.setupWithViewPager(pager);
         tabLayout.setTabsFromPagerAdapter(adapter);
         return view;
     }
     private void initViewList() {
-        viewList.add(LayoutInflater.from(getActivity()).inflate(R.layout.layout_one, null));
-        viewList.add(LayoutInflater.from(getActivity()).inflate(R.layout.layout_two, null));
-        viewList.add(LayoutInflater.from(getActivity()).inflate(R.layout.layout_three, null));
-        viewList.add(LayoutInflater.from(getActivity()).inflate(R.layout.layout_for, null));
+        viewList.add(new RecommendFragment());
+        viewList.add(new RecommendFragment());
+        viewList.add(new RecommendFragment());
+        viewList.add(new RecommendFragment());
     }
 
     private void initTabTitle() {
@@ -57,32 +60,5 @@ public class HomeFragment extends Fragment {
         pager = (ViewPager) view.findViewById(R.id.vp_home);
     }
 
-    class TabPagerAdapter extends PagerAdapter {
 
-        @Override
-        public int getCount() {
-            return viewList.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view == object;
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(viewList.get(position));
-            return viewList.get(position);
-        }
-
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(viewList.get(position));
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabList.get(position);
-        }
-    }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="114dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/film_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/ic_keep_guide"/>
+    <LinearLayout
+        android:layout_toRightOf="@+id/film_image"
+        android:layout_alignParentRight="true"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_height="80dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_film_name"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:text="电影名"/>
+        <TextView
+            android:id="@+id/tv_film_introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:singleLine="true"
+            android:text="首先是到语言非常的吸引人，我们能从故事情节中扥到很多东西。"/>
+        <TextView
+            android:id="@+id/tv_film_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="20dp"
+            android:textColor="@color/dark_green"
+            android:text="15元"/>
+    </LinearLayout>
+
+</RelativeLayout>
