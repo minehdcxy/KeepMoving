@@ -11,9 +11,211 @@
     <color name="green">#04744e</color>
     <color name="dark_transparent">#d0000000</color>
     <color name="low_black">#999999</color> <!-- 字体  浅黑 -->
-    <color name="gray">#868484</color>
+    <color name="gray">#a6a5a5</color>
 
     <color name="red">#ff2424</color>
     <color name="low_white">#ececec</color>
     <color name="black_overlay">#66000000</color>
+
+
+    <color name="selectable_item_background_pressed_color">#e0a1c5df</color>
+    <!--<color name="selectable_item_background_pressed_color">@color/gray_300_n</color>-->
+
+    <color name="high_black">#333333</color> <!-- 字体  深黑 -->
+    <color name="middle_black">#666666</color> <!-- 字体  中黑 -->
+
+    <color name="stroke_grey">#e6e6e6</color> <!-- stroke边框颜色  灰色 -->
+
+    <color name="orange_yellow">#ff9900</color> <!-- 首页更多,字体  橙黄 -->
+    <color name="orangeYellowPressed">#d98200</color> <!-- 登录点击后的效果颜色 -->
+    <color name="middle_blue">#427ec0</color> <!-- 搜索结果页字体颜色  中蓝 -->
+    <color name="middleBluePressed">#386ba3</color> <!-- 注册点击后的效果颜色 -->
+    <color name="btnLoginUnClickableColor">#fcc87c</color> <!-- 登录按钮无法点击时颜色 -->
+    <color name="blue_text">#427ec0</color> <!-- 筛选蓝色文字 -->
+    <color name="greyD9">#d9d9d9</color>
+    <color name="drawCashPressedColor">#cccccc</color> <!-- 提现按钮按下颜色 -->
+
+    <color name="title_background">#F8F8F8</color>
+    <color name="title_line">#DCDDDE</color>
+
+
+    <color name="category1_bg">#7f97b3</color>
+    <color name="category2_bg">#5796cc</color>
+    <color name="category3_bg">#3471b0</color>
+    <color name="category4_bg">#006d8a</color>
+
+    <color name="category1_bg_pressed">#7f97ff</color>
+    <color name="category2_bg_pressed">#5796ff</color>
+    <color name="category3_bg_pressed">#3471ff</color>
+    <color name="category4_bg_pressed">#006daf</color>
+
+    <color name="common_graduate_bg">#f0f2f6</color>
+    <color name="common_graduate_content_bg">#ffffff</color>
+
+
+    <!--主页面tab字体颜色-->smart_tab_text_unselected_text_color
+    <color name="smart_tab_text_unselected_text_color">@color/gray_600_n</color>
+    <color name="smart_tab_text_selected_text_color">#216fc0</color>
+    <color name="smart_tab_indicate_line_color">#216fc0</color>
+    <color name="smart_tab_line_color">@color/line_light</color>
+
+
+    <color name="blue">#01baff</color>
+    <color name="blue02">#00beff</color>
+    <color name="blue_press">#0086c5</color>
+
+    <color name="blue200">#77aaff</color>
+    <color name="blue100">#82b1ff</color>
+
+    <color name="bule_tab">#216fc0</color>
+
+    <!-- 文字色系 -->
+    <color name="text_dark">#3c3d3d</color>
+    <color name="text_heavy">#6d6d6e</color>
+    <color name="text_light">#9d9e9e</color>
+    <color name="text_question_category_group">#3c3c3c</color>
+    <color name="text_question_category_child">#3c3c3e</color>
+    <color name="text_question_homepage_current">#9d9d9e</color>
+    <color name="text_dark_normal">#3c3d3e</color>
+    <color name="text_question_tab">#77777d</color>
+    <color name="text_wrong">#f03748</color>
+
+    <!-- 灰色系 -->
+    <color name="gray_600_n">#3c3d3d</color>
+    <color name="gray_500_n">#6d6d6e</color>
+    <color name="gray_400_n">#9d9e9e</color>
+    <color name="gray_300_n">#dcdcdc</color>
+    <color name="gray_for_guide">#ebebeb</color>
+    <color name="gray_200_n">#ebeced</color>
+    <color name="gray_100_n">#f2f4f5</color>
+    <color name="gray_50_n">#f7f9fa</color>
+    <color name="grey_350">#cdcdce</color>
+    <color name="grey_sheet_icon">#ededee</color>
+
+
+
+    <!-- 品牌系列 -->
+    <color name="orange_n">#ff9100</color>
+    <color name="orange_800_n">#ef6c00</color>
+    <color name="orange_600_n">#ff6c00</color>
+    <color name="orange_500_n">#f57c00</color>
+    <color name="orange_300_n">#ffb74d</color>
+    <color name="orange_200_n">#ffcc80</color>
+    <color name="orange_50_n">#fff3e0</color>
+
+    <!-- 辅助色系列 -->
+    <color name="blue_n">#3fa5f2</color>
+    <color name="blue_600_n">#1e88e5</color>
+    <color name="blue_200_n">#90caf9</color>
+    <color name="blue_100_n">#bbdefb</color>
+    <color name="blue_50_n">#e3f2fd</color>
+    <!--  -->
+    <color name="red_n">#f95e5e</color>
+    <color name="red_100_n">#ffcdd2</color>
+    <color name="green_n">#48b14b</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="transparent_10">#1A000000</color>
+    <color name="transparent_20">#33000000</color>
+    <color name="transparent_30">#b3000000</color>
+    <color name="transparent_40">#66000000</color>
+    <color name="transparent_50">#e0000000</color>
+    <color name="transparent_60">#99000000</color>
+    <color name="transparent_80">#ce000000</color>
+    <color name="transparent_semi">#80000000</color>
+
+
+    <color name="transparent_white_10">#1Affffff</color>
+    <color name="transparent_white_20">#33ffffff</color>
+    <color name="transparent_white_30">#b3ffffff</color>
+    <color name="transparent_white_40">#66ffffff</color>
+    <color name="transparent_white_50">#efffffff</color>
+    <color name="transparent_white_60">#99ffffff</color>
+    <color name="transparent_white_80">#ceffffff</color>
+    <color name="transparent_white_semi">#80ffffff</color>
+
+
+    <color name="dialog_background">#66333333</color>
+
+
+    <color name="ic_heavy">#828588</color>
+
+    <color name="line_light">#d6d8dc</color>
+    <color name="line_heavy">#c8c7cc</color>
+    <color name="line_guide">#d2d2d2</color>
+    <color name="bg">#f2f4f5</color>
+    <color name="bg_heavy">#e8eaee</color>
+
+    <!-- 品牌色系 -->
+    <color name="orange_heavy">#ffcc80</color>
+    <color name="orange_light">#fff3e0</color>
+    <!-- 辅助色系 -->
+    <color name="blue_heavy">#90caf9</color>
+    <color name="blue_light">#e3f2fd</color>
+
+    <color name="btn_blue_normal">@color/blue</color>
+    <color name="btn_blue_press">#4182ee</color>
+
+    <color name="text_color">#333333</color>
+    <color name="text_hint_color">#999999</color>
+    <color name="line_gray">#dcdcdc</color>
+    <color name="bg_green_light">#b5dfd6</color>
+    <color name="green_600_light">#95d9cb</color>
+    <color name="green_600_super_light">#55c2ad</color>
+    <color name="green_600_heavy">#129e85</color>
+
+
+    <!--老师端color开始-->
+    <color name="ns_orange_800">#ef6c00</color>
+    <color name="ns_orange_600">#ff6c00</color>
+    <color name="ns_orange_500">#f57c00</color>
+    <color name="ns_orange">#ff9100</color>
+    <color name="ns_orange_300">#ffb74d</color>
+    <color name="ns_orange_200">#ffcc80</color>
+    <color name="ns_orange_50">#fff3e0</color>
+
+    <color name="ns_blue_800">#3e638c</color>
+    <color name="ns_blue_600">#1e88e5</color>
+    <color name="ns_blue">#3fa5f2</color>
+    <color name="ns_blue_300">#64b5f6</color>
+    <color name="ns_blue_200">#8cc8fd</color>
+    <color name="ns_blue_100">#bbdefb</color>
+    <color name="ns_blue_50">#e3f2fd</color>
+    <color name="blue_700">#245BD2</color>
+    <color name="red_600">#F03748</color>
+    <color name="red_50">#FFD9DD</color>
+
+    <color name="ns_green">#48b14b</color>
+    <color name="ns_red">#fc5c5a</color>
+    <color name="ns_red_100">#ffcdd2</color>
+    <color name="ns_red_200">#ffcdd1</color>
+
+    <color name="ns_grey_600">#3c3d3d</color>
+    <color name="ns_grey_500">#6d6d6e</color>
+    <color name="ns_grey_400">#9d9e9e</color>
+    <color name="ns_grey_300">#dcddde</color>
+    <color name="ns_grey_200">#ebeced</color>
+    <color name="ns_grey_100">#f2f4f5</color>
+    <color name="ns_grey_50">#f7f9fa</color>
+    <color name="ns_grey_40">#f8f8f8</color>
+
+    <color name="green_600">#2bb398</color>
+    <color name="green_500">#2EA1CF</color>
+
+    <color name="ns_tran_white_50">#80FFFFFF</color>
+    <!-- global color -->
+    <color name="ns_transparent">#00000000</color>
+
+    <!-- transparent color-->
+    <color name="ns_transparent_10">#1A000000</color>
+    <color name="ns_transparent_20">#33000000</color>
+    <color name="ns_transparent_30">#b3000000</color>
+    w
+    <color name="ns_transparent_50">#e0000000</color>
+    <color name="ns_transparent_80">#ce000000</color>
+    <color name="ns_transparent_semi">#80000000</color>
+
+    <color name="ns_white">#ffffff</color>
+
+    <color name="gradeColor">#edf0f0</color>
 </resources>

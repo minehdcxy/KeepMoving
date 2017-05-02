@@ -73,6 +73,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(getActivity(), FilmDetailActivity.class);
+        intent.putExtra("filmId", filmDataList.get(i).getFilmId());
         startActivity(intent);
     }
 

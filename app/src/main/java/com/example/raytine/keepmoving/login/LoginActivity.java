@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login.setOnClickListener(this);
 
         if (MyLeanCloudApplication.isDebug) {
-            phoneNumber.setText("15846577415");
+            phoneNumber.setText("18246181829");
             password.setText("123456");
         }
     }

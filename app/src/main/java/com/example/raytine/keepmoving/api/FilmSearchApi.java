@@ -27,7 +27,6 @@ public class FilmSearchApi {
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
-                // list 返回的就是有图片的 Todo 集合
                 if(e == null){
                     for(AVObject object : list){
                         FilmData filmData = new FilmData();
@@ -35,6 +34,7 @@ public class FilmSearchApi {
                         filmData.setFilmPrice(object.getString("filmPrice"));
                         filmData.setFilmIntrodution(object.getString("filmIntroduction"));
                         filmData.setFilmImage(object.getString("imageUrl"));
+                        filmData.setFilmId(object.getObjectId());
                         filmDataList.add(filmData);
                     }
                     requestResult.successfully("success", filmDataList);

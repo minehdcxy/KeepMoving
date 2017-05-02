@@ -36,6 +36,7 @@
             android:layout_toRightOf="@id/iv_film_detail"
             android:orientation="vertical">
             <TextView
+                android:id="@+id/tv_detail_film_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="速度与激情8"
@@ -47,32 +48,37 @@
             <TextView
                 android:layout_height="0.5dp"
                 android:layout_width="match_parent"
-                android:background="@color/black"/>
+                android:background="@color/dark_green"/>
             <TextView
+                android:id="@+id/tv_detail_film_type"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="类型:"/>
             <TextView
+                android:id="@+id/tv_detail_film_version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="版本:"/>
             <TextView
+                android:id="@+id/tv_detail_film_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="地区:"/>
             <TextView
+                android:id="@+id/tv_detail_film_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="时长:"/>
             <TextView
+                android:id="@+id/tv_detail_film_director"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -85,7 +91,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/gray"
+        android:background="@color/dark_green"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
     <TextView
@@ -97,6 +103,13 @@
         android:textSize="18sp"
         android:gravity="center"
         android:textColor="@color/dark_green"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/dark_green"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"/>
     <ListView
         android:id="@+id/lv_cinema_detail"
         android:layout_width="match_parent"
