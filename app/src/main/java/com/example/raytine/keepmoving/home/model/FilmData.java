@@ -1,16 +1,23 @@
 package com.example.raytine.keepmoving.home.model;
 
+import java.io.Serializable;
+
 /**
  * Created by raytine on 2017/4/30.
  */
 
-public class FilmData {
+public class FilmData implements Serializable{
     private String filmName;
-    private String filmIntrodution;
+    private String filmIntroduction;
     private String filmPrice;
     private String filmImage;
     private String filmId;
     private String filmType;
+
+    private String filmVersion;
+    private String filmAddress;
+    private String filmTime;
+    private String filmDirector;
 
     public String getFilmStr() {
         return filmStr;
@@ -62,12 +69,6 @@ public class FilmData {
         this.filmType = filmType;
     }
 
-    private String filmVersion;
-    private String filmAddress;
-    private String filmTime;
-    private String filmDirector;
-
-
     public String getFilmId() {
         return filmId;
     }
@@ -75,7 +76,6 @@ public class FilmData {
     public void setFilmId(String filmId) {
         this.filmId = filmId;
     }
-
 
     public String getFilmPrice() {
         return filmPrice;
@@ -93,12 +93,12 @@ public class FilmData {
         this.filmName = filmName;
     }
 
-    public String getFilmIntrodution() {
-        return filmIntrodution;
+    public String getFilmIntroduction() {
+        return filmIntroduction;
     }
 
-    public void setFilmIntrodution(String filmIntrodution) {
-        this.filmIntrodution = filmIntrodution;
+    public void setFilmIntroduction(String filmIntroduction) {
+        this.filmIntroduction = filmIntroduction;
     }
 
     public String getFilmImage() {
@@ -109,5 +109,13 @@ public class FilmData {
         this.filmImage = filmImage;
     }
 
-
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("filmName : ").append(filmName)
+                .append(", filmIntroduction : ").append(filmIntroduction)
+                .append(", filmPrice : ").append(filmPrice)
+                .append(", filmImage : ").append(filmImage);
+        return sb.toString();
+    }
 }

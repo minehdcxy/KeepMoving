@@ -7,12 +7,12 @@ import base.BaseView;
 
 public interface UserInfoContract {
 
-    public interface View extends BaseView<Presenter> {
+    interface View extends BaseView<Presenter> {
         void updateSuccess();
         void updateFailed();
     }
 
-    public interface Presenter extends BasePresenter {
+    interface Presenter extends BasePresenter {
         void update(User user);
     }
 

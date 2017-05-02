@@ -33,7 +33,7 @@ public class ActivityUserInfo extends ActionBarActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_info);
 
-        presenter = new UserInfoPresenter(this);
+        new UserInfoPresenter(this);
         initViews();
         initData();
     }

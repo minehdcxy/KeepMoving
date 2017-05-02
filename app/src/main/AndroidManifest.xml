@@ -53,7 +53,8 @@
         <activity android:name=".user.ActivityUserCard" />
         <activity android:name=".user.ActivityUserAdvise" />
         <activity android:name=".filmDetail.FilmDetailActivity" />
-        <activity android:name=".user.ActivityUserManage" />
+        <activity android:name=".user.manage.ActivityUserManage" />
+        <activity android:name=".user.manage.ActivityManageFilmInfo" />
     </application>
 
 </manifest>

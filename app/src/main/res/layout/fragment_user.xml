@@ -18,7 +18,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_tab_my_blue"/>
+                android:src="@drawable/ic_user_avatar"/>
 
             <TextView
                 android:id="@+id/user_name_tv"
@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 android:text="哈哈"/>
 
@@ -57,9 +57,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:gravity="center_vertical"
+                android:textSize="18sp"
                 android:text="个人信息"/>
 
             <View
@@ -80,9 +80,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:text="管理影视信息"
                 />
 
@@ -104,9 +104,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:text="我的钱包"/>
 
             <View
@@ -127,9 +127,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:text="我的卡包"/>
 
             <View
@@ -150,9 +150,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:text="意见与建议"/>
 
             <View
@@ -183,7 +183,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:background="@color/red"
-                android:textSize="21sp"
+                android:textSize="18sp"
                 android:textColor="@color/white"
                 android:text="退出登录"/>
 

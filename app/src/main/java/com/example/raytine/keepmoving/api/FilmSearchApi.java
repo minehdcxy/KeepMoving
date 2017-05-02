@@ -32,7 +32,7 @@ public class FilmSearchApi {
                         FilmData filmData = new FilmData();
                         filmData.setFilmName(object.getString("filmName"));
                         filmData.setFilmPrice(object.getString("filmPrice"));
-                        filmData.setFilmIntrodution(object.getString("filmIntroduction"));
+                        filmData.setFilmIntroduction(object.getString("filmIntroduction"));
                         filmData.setFilmImage(object.getString("imageUrl"));
                         filmData.setFilmId(object.getObjectId());
                         filmDataList.add(filmData);

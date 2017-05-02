@@ -14,6 +14,7 @@ import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
 import com.example.raytine.keepmoving.login.LoginActivity;
 import com.example.raytine.keepmoving.user.info.ActivityUserInfo;
+import com.example.raytine.keepmoving.user.manage.ActivityUserManage;
 import com.example.raytine.keepmoving.user.model.User;
 
 public class UserFragment extends Fragment implements View.OnClickListener {
@@ -22,6 +23,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
     private User user;
 
+    private TextView userNameTv;
     private LinearLayout userInfoLl;
     private LinearLayout userManageLl;
     private LinearLayout userWalletLl;
@@ -45,6 +47,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initViews(View view) {
+        userNameTv = (TextView) view.findViewById(R.id.user_name_tv);
+        userNameTv.setText(user.getNickname());
         userInfoLl = (LinearLayout) view.findViewById(R.id.user_info_ll);
         userManageLl = (LinearLayout) view.findViewById(R.id.user_manage_ll);
         userWalletLl = (LinearLayout) view.findViewById(R.id.user_wallet_ll);

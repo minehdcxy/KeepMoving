@@ -116,7 +116,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
                 holder = new FilmHolder();
                 holder.imageView = (CircleImageView) view.findViewById(R.id.film_image);
                 holder.filmName = (TextView) view.findViewById(R.id.tv_film_name);
-                holder.filmIntrodution = (TextView) view.findViewById(R.id.tv_film_introduction);
+                holder.filmIntroduction = (TextView) view.findViewById(R.id.tv_film_introduction);
                 holder.filmPrice = (TextView) view.findViewById(R.id.tv_film_price);
                 view.setTag(holder);
             } else {
@@ -124,7 +124,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
                 holder = (FilmHolder) view.getTag();
             }
             holder.filmName.setText(filmDataList.get(position).getFilmName());
-            holder.filmIntrodution.setText(filmDataList.get(position).getFilmIntrodution());
+            holder.filmIntroduction.setText(filmDataList.get(position).getFilmIntroduction());
             holder.filmPrice.setText(filmDataList.get(position).getFilmPrice());
             return view;
         }
@@ -133,7 +133,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
     class FilmHolder {
         CircleImageView imageView;
         TextView filmName;
-        TextView filmIntrodution;
+        TextView filmIntroduction;
         TextView filmPrice;
     }
 }
