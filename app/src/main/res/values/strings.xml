@@ -29,9 +29,7 @@
 
 
     <!-- String for tab title -->
-    <string name="tab_title_recommend">推荐</string>
-    <string name="tab_title_receive">热映</string>
-    <string name="tab_title_reflect">待映</string>
-    <string name="tab_title_abroad">海外</string>
-
+    <string name="tab_title_recommend">周</string>
+    <string name="tab_title_receive">月</string>
+    <string name="tab_title_reflect">年</string>
 </resources>

@@ -18,7 +18,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_tab_my_blue"/>
+                android:src="@drawable/keep_icon"/>
 
             <TextView
                 android:id="@+id/user_name_tv"
@@ -28,7 +28,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="21sp"
                 android:textColor="@color/white"
-                android:text="哈哈"/>
+                android:text="事妈"/>
 
         </LinearLayout>
 
@@ -49,7 +49,7 @@
         <LinearLayout
             android:id="@+id/user_info_ll"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:orientation="vertical">
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="15sp"
                 android:text="个人信息"/>
 
             <View
@@ -69,80 +69,33 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/user_manage_ll"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:id="@+id/user_manage_ll"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:orientation="vertical">-->
 
-            <TextView
-                android:id="@+id/user_manage_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="21sp"
-                android:text="管理影视信息"
-                />
+            <!--<TextView-->
+                <!--android:id="@+id/user_manage_tv"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:textSize="21sp"-->
+                <!--android:text="管理影视信息"-->
+                <!--/>-->
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/low_black" />
+            <!--<View-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0.5dp"-->
+                <!--android:background="@color/low_black" />-->
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/user_wallet_ll"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/user_wallet_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="21sp"
-                android:text="我的钱包"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/low_black" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/user_card_ll"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/user_card_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:textSize="21sp"
-                android:text="我的卡包"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/low_black" />
-
-        </LinearLayout>
-
+        <!--</LinearLayout>-->
         <LinearLayout
             android:id="@+id/user_advise_ll"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:orientation="vertical">
 
             <TextView
@@ -152,7 +105,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
-                android:textSize="21sp"
+                android:textSize="15sp"
                 android:text="意见与建议"/>
 
             <View
@@ -182,9 +135,9 @@
                 android:layout_marginTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:background="@color/red"
-                android:textSize="21sp"
-                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:background="@drawable/bg_yellow_corner_style"
+                android:textColor="@color/black"
                 android:text="退出登录"/>
 
         </RelativeLayout>

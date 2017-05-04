@@ -21,6 +21,8 @@ public class HomeFragmentAdapter extends FragmentStatePagerAdapter {
         this.titleList = titleList;
     }
 
+
+
     @Override
     public Fragment getItem(int position) {
         return viewList.get(position);

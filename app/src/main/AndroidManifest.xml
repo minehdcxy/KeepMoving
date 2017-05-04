@@ -52,8 +52,9 @@
         <activity android:name=".user.ActivityUserWallet" />
         <activity android:name=".user.ActivityUserCard" />
         <activity android:name=".user.ActivityUserAdvise" />
-        <activity android:name=".filmDetail.FilmDetailActivity" />
         <activity android:name=".user.ActivityUserManage" />
+        <activity android:name=".statistic.StatisticActivity" />
+        <activity android:name=".TargetActivity"/>
     </application>
 
 </manifest>

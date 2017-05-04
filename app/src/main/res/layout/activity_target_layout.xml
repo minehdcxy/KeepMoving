@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/home_view_toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/dark_green"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="设置目标数"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/tv_target_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginRight="10dp"
+            android:text="提交"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="150dp">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/shape_oval">
+
+            <TextView
+                android:id="@+id/tv_target"
+                android:text="1000"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_below="@+id/tv_target"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/dark_green"
+                android:text="步"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="150dp">
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:background="@color/dark_green"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <EditText
+        android:id="@+id/et_target"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:singleLine="true"
+        android:paddingLeft="5dp"
+        android:background="@drawable/bg_yellow_corner_style"/>
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:text="确定"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:background="@drawable/bg_yellow_corner_style"
+            android:id="@+id/bt_target_ok" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:text="步行21分钟"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="or"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="50dp"
+            android:text="跑步10分钟"/>
+    </LinearLayout>
+
+
+</LinearLayout>
