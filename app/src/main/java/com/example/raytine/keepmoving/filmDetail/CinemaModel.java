@@ -1,5 +1,8 @@
 package com.example.raytine.keepmoving.filmDetail;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by raytine on 2017/5/1.
  */
@@ -9,6 +12,27 @@ public class CinemaModel {
     private String cinemaId;
     private String address;
     private String filmPrice;
+    private Tickets tickets;
+
+    public static class Tickets{
+        Map<String, Integer[][]> tickets = new HashMap<>();
+
+        public Tickets() {
+
+        }
+
+        public void put(String key) {
+            tickets.put(key, new Integer[5][5]);
+        }
+
+        public Map<String, Integer[][]> getTickets() {
+            return tickets;
+        }
+
+        public void setTickets(Map<String, Integer[][]> tickets) {
+            this.tickets = tickets;
+        }
+    }
 
     public String getFilmTime() {
         return filmTime;
@@ -53,5 +77,11 @@ public class CinemaModel {
         this.filmPrice = filmPrice;
     }
 
+    public Object getTickets() {
+        return tickets;
+    }
 
+    public void setTickets(Tickets tickets) {
+        this.tickets = tickets;
+    }
 }

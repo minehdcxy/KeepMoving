@@ -1,4 +1,4 @@
-package com.example.raytine.keepmoving.user.manage;
+package com.example.raytine.keepmoving.user.manage.query;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.home.model.FilmData;
+import com.example.raytine.keepmoving.user.manage.edit.ActivityManageFilmInfo;
 import com.example.raytine.keepmoving.util.widget.ManageDialog;
 
 import java.util.ArrayList;

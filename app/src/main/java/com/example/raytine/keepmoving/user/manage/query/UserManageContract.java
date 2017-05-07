@@ -1,4 +1,4 @@
-package com.example.raytine.keepmoving.user.manage;
+package com.example.raytine.keepmoving.user.manage.query;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.raytine.keepmoving.user.manage;
+package com.example.raytine.keepmoving.user.manage.query;
 
 import com.example.raytine.keepmoving.api.FilmSearchApi;
 import com.example.raytine.keepmoving.home.model.FilmData;

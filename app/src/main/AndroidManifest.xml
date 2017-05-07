@@ -53,8 +53,9 @@
         <activity android:name=".user.ActivityUserCard" />
         <activity android:name=".user.ActivityUserAdvise" />
         <activity android:name=".filmDetail.FilmDetailActivity" />
-        <activity android:name=".user.manage.ActivityUserManage" />
-        <activity android:name=".user.manage.ActivityManageFilmInfo" />
+        <activity android:name=".user.manage.query.ActivityUserManage" />
+        <activity android:name=".user.manage.edit.ActivityManageFilmInfo"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

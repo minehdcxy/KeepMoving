@@ -14,7 +14,7 @@ import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
 import com.example.raytine.keepmoving.login.LoginActivity;
 import com.example.raytine.keepmoving.user.info.ActivityUserInfo;
-import com.example.raytine.keepmoving.user.manage.ActivityUserManage;
+import com.example.raytine.keepmoving.user.manage.query.ActivityUserManage;
 import com.example.raytine.keepmoving.user.model.User;
 
 public class UserFragment extends Fragment implements View.OnClickListener {
