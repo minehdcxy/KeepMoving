@@ -67,4 +67,6 @@ dependencies {
 
     // LeanCloud 应用内搜索包
     compile ('cn.leancloud.android:avoscloud-search:v3.+@aar')
+    compile 'com.google.code.gson:gson:2.8.0'
+
 }

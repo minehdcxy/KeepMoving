@@ -62,6 +62,8 @@
         android:layout_height="50dp"
         android:layout_margin="20dp"
         android:text="添加新的影视信息"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@drawable/bt_login_background"/>
 
 </LinearLayout>

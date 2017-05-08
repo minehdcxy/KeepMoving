@@ -43,7 +43,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
-                android:src="@drawable/ic_user_avatar"
+                android:src="@drawable/ic_film_picture"
                 android:scaleType="fitCenter"/>
 
             <TextView
@@ -101,6 +101,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:text="价格"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"/>
+
+                            <EditText
+                                android:id="@+id/manage_film_price_et"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:textColor="@color/black"
+                                android:singleLine="true"
+                                android:textSize="16sp" />
+
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -271,7 +296,7 @@
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:ellipsize="end"
-                android:hint="请添加上映院线，点击可查看已添加院线"
+                android:hint="请添加上映院线，点击可查看"
                 android:textColor="@color/black"
                 android:textSize="16sp"/>
 
@@ -322,7 +347,9 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="点击添加上映院线"/>
+            android:text="点击添加上映院线"
+            android:textColor="@color/white"
+            android:background="@drawable/bt_login_background"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -348,7 +375,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="提交"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:background="@drawable/bt_login_background"/>
 
     </LinearLayout>
 

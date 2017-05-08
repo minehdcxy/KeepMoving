@@ -12,24 +12,24 @@ public class CinemaModel {
     private String cinemaId;
     private String address;
     private String filmPrice;
-    private Tickets tickets;
+    private Ticket ticket;
 
-    public static class Tickets{
-        Map<String, Integer[][]> tickets = new HashMap<>();
+    public static class Ticket{
+        Map<String, Integer[]> tickets = new HashMap<>();
 
-        public Tickets() {
+        public Ticket() {
 
         }
 
-        public void put(String key) {
-            tickets.put(key, new Integer[5][5]);
+        public void put(String key, Integer[] integers) {
+            tickets.put(key, integers);
         }
 
-        public Map<String, Integer[][]> getTickets() {
+        public Map<String, Integer[]> getTickets() {
             return tickets;
         }
 
-        public void setTickets(Map<String, Integer[][]> tickets) {
+        public void setTickets(Map<String, Integer[]> tickets) {
             this.tickets = tickets;
         }
     }
@@ -77,11 +77,11 @@ public class CinemaModel {
         this.filmPrice = filmPrice;
     }
 
-    public Object getTickets() {
-        return tickets;
+    public Object getTicket() {
+        return ticket;
     }
 
-    public void setTickets(Tickets tickets) {
-        this.tickets = tickets;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

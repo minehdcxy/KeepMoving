@@ -13,7 +13,6 @@ public class FilmData implements Serializable{
     private String filmImage;
     private String filmId;
     private String filmType;
-
     private String filmVersion;
     private String filmAddress;
     private String filmTime;

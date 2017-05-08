@@ -27,6 +27,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     private LinearLayout userInfoLl;
     private LinearLayout userManageLl;
     private LinearLayout userWalletLl;
+    private TextView userWalletTv;
     private LinearLayout userCardLl;
     private LinearLayout userAdviseLl;
     private TextView exit;
@@ -52,6 +53,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         userInfoLl = (LinearLayout) view.findViewById(R.id.user_info_ll);
         userManageLl = (LinearLayout) view.findViewById(R.id.user_manage_ll);
         userWalletLl = (LinearLayout) view.findViewById(R.id.user_wallet_ll);
+        userWalletTv = (TextView) view.findViewById(R.id.user_wallet_tv);
         userCardLl = (LinearLayout) view.findViewById(R.id.user_card_ll);
         userAdviseLl = (LinearLayout) view.findViewById(R.id.user_advise_ll);
         exit = (TextView) view.findViewById(R.id.user_exit_tv);
@@ -60,6 +62,7 @@ public class UserFragment extends Fragment implements View.OnClickListener {
             case 0:
                 userManageLl.setVisibility(View.GONE);
                 userWalletLl.setVisibility(View.VISIBLE);
+                userWalletTv.setText(String.valueOf(user.getWallet()));
                 userCardLl.setVisibility(View.VISIBLE);
                 userAdviseLl.setVisibility(View.VISIBLE);
 
@@ -91,10 +94,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
             case R.id.user_manage_ll:
                 Intent manageIntent = new Intent(getActivity(), ActivityUserManage.class);
                 startActivity(manageIntent);
-                break;
-            case R.id.user_wallet_ll:
-                Intent walletIntent = new Intent(getActivity(), ActivityUserWallet.class);
-                startActivity(walletIntent);
                 break;
             case R.id.user_card_ll:
                 Intent cardIntent = new Intent(getActivity(), ActivityUserCard.class);

@@ -3,6 +3,7 @@ package com.example.raytine.keepmoving.user.manage.edit;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentUris;
 import android.content.DialogInterface;
@@ -31,7 +32,6 @@ import android.widget.Toast;
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.home.model.FilmData;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class ActivityManageFilmInfo extends ActionBarActivity implements View.OnClickListener, ManageFilmInfoContract.View{
@@ -42,10 +42,14 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
 
     private ManageFilmInfoContract.Presenter presenter;
 
+    private Bundle bundle;
+
+    private ProgressDialog dialog;
     private ImageView manageFilmBackIv;
     private ImageView manageFilmPictureIv;
     private TextView manageFilmTitleTv;
     private EditText filmNameEt;
+    private EditText filmPriceEt;
     private EditText filmTypeEt;
     private EditText filmVersionEt;
     private EditText filmAddressEt;
@@ -59,6 +63,8 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
     private EditText filmIntroductionEt;
     private Button commitBtn;
 
+    private String filmId;
+    private String imagePath;
     private int choiceCinema = -1;
     private String choiceDate;
     private String choiceTime;
@@ -66,18 +72,16 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
 
     private boolean isWantAddInfo = false;
 
-    private final String[] items = {"黑龙江大学音乐厅", "哈西万达影城", "学府四嘉兴影城", "乐松万达影城", "中央大街万达影城"};
-
-    private ArrayList<Integer> choiceDeleteInfo = new ArrayList<>();
+    private final String[] cinemas = {"黑龙江大学音乐厅", "哈西万达影城", "学府四嘉兴影城", "乐松万达影城", "中央大街万达影城"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_film);
 
+        bundle = getIntent().getExtras();
         new ManageFilmInfoPresenter(this);
         initViews();
-        initData();
     }
 
     private void initViews() {
@@ -85,6 +89,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
         manageFilmPictureIv = (ImageView) findViewById(R.id.manage_film_picture_iv);
         manageFilmTitleTv = (TextView) findViewById(R.id.manage_film_title_tv);
         filmNameEt = (EditText) findViewById(R.id.manage_film_name_et);
+        filmPriceEt = (EditText) findViewById(R.id.manage_film_price_et);
         filmTypeEt = (EditText) findViewById(R.id.manage_film_type_et);
         filmVersionEt = (EditText) findViewById(R.id.manage_film_version_et);
         filmAddressEt = (EditText) findViewById(R.id.manage_film_address_et);
@@ -106,17 +111,44 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
         showTimeBtn.setOnClickListener(this);
         addInfoBtn.setOnClickListener(this);
         commitBtn.setOnClickListener(this);
-    }
 
-    private void initData() {
-        Intent intent = getIntent();
-        Bundle bundle = intent.getExtras();
+        dialog = new ProgressDialog(ActivityManageFilmInfo.this);
+
+
         if (null != bundle) {
             manageFilmTitleTv.setText("编辑影视信息");
-            FilmData film = (FilmData) bundle.get("film");
+            FilmData filmData = (FilmData) bundle.get("film");
+            if (null != filmData) {
+                filmId = filmData.getFilmId();
+                presenter.queryFilmInfo(filmId);
+            }
         } else {
             manageFilmTitleTv.setText("添加影视信息");
         }
+    }
+
+    @Override
+    public void initData(FilmData filmData, byte[] picture) {
+        filmNameEt.setText(filmData.getFilmName());
+        filmPriceEt.setText(filmData.getFilmPrice());
+        filmTypeEt.setText(filmData.getFilmType());
+        filmVersionEt.setText(filmData.getFilmVersion());
+        filmAddressEt.setText(filmData.getFilmAddress());
+        filmTimeEt.setText(filmData.getFilmTime());
+        filmDirectorEt.setText(filmData.getFilmDirector());
+        filmStr = new StringBuffer();
+        filmStr.append(filmData.getFilmStr());
+        String[] str = filmStr.toString().split("\\|");
+        StringBuffer sb = new StringBuffer();
+        for (String s : str) {
+            int index = Integer.parseInt(s.split(",")[0]) - 1;
+            sb.append(cinemas[index]).append(" ").append(s.split(",")[1]).append(",");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        filmStrTv.setText(sb.toString());
+        filmIntroductionEt.setText(filmData.getFilmIntroduction());
+        Bitmap bitmap = BitmapFactory.decodeByteArray(picture, 0, picture.length);
+        manageFilmPictureIv.setImageBitmap(bitmap);
     }
 
     @Override
@@ -169,7 +201,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
 
     @TargetApi(19)
     private void handleImageOnKitKat(Intent data) {
-        String imagePath = null;
+        imagePath = null;
         Uri uri = data.getData();
         if (DocumentsContract.isDocumentUri(this, uri)) {
             String docId = DocumentsContract.getDocumentId(uri);
@@ -192,7 +224,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
 
     private void handleImageBeforeKitKat(Intent data) {
         Uri uri = data.getData();
-        String imagePath = getImagePath(uri, null);
+        imagePath = getImagePath(uri, null);
         displayImage(imagePath);
     }
 
@@ -222,30 +254,12 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
         if (TextUtils.isEmpty(tmp)) {
             Toast.makeText(ActivityManageFilmInfo.this, "请先添加上映院线信息后再进行查看", Toast.LENGTH_SHORT).show();
         } else {
-            String[] info = tmp.split(",");
-            boolean[] initChoiceSets = new boolean[info.length];
-            choiceDeleteInfo.clear();
             AlertDialog.Builder builder = new AlertDialog.Builder(ActivityManageFilmInfo.this);
-            builder.setTitle("选择可以删除院线信息");
-            builder.setMultiChoiceItems(info, initChoiceSets,
-                    new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                            if (isChecked) {
-                                choiceDeleteInfo.add(which);
-                            } else {
-                                choiceDeleteInfo.remove(Integer.valueOf(which));
-                            }
-                        }
-                    });
+            builder.setTitle("选择院线信息");
+            builder.setMessage(tmp);
             builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    int size = choiceDeleteInfo.size();
-                    Log.i(TAG, "size : " + size);
-                    for (int i : choiceDeleteInfo) {
-                        Log.i(TAG, "i : " + i);
-                    }
                 }
             });
             builder.show();
@@ -257,7 +271,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
         choiceCinema = -1;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("选择上映影院");
-        builder.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(cinemas, 0, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 choiceCinema = which;
@@ -269,8 +283,8 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
                 if (-1 == choiceCinema) {
                     choiceCinema = 0;
                 }
-                showCinemaBtn.setText(items[choiceCinema]);
-                Toast.makeText(ActivityManageFilmInfo.this, "选择" + items[choiceCinema], Toast.LENGTH_SHORT).show();
+                showCinemaBtn.setText(cinemas[choiceCinema]);
+                Toast.makeText(ActivityManageFilmInfo.this, "选择" + cinemas[choiceCinema], Toast.LENGTH_SHORT).show();
             }
         });
         builder.show();
@@ -323,7 +337,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
             if (!TextUtils.isEmpty(tmp)) {
                 tmp += ",";
             }
-            String currTemp = items[choiceCinema] + " " + choiceDate + " " + choiceTime;
+            String currTemp = cinemas[choiceCinema] + " " + choiceDate + " " + choiceTime;
             filmStrTv.setText(tmp + currTemp);
             Toast.makeText(ActivityManageFilmInfo.this, "添加信息为:" + currTemp, Toast.LENGTH_LONG).show();
             filmStr.append((choiceCinema + 1)).append(",").append(choiceDate).append(" ").append(choiceTime).append("|");
@@ -353,6 +367,7 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
 
     private void commit() {
         String filmName = filmNameEt.getText().toString();
+        String filmPrice = filmPriceEt.getText().toString();
         String filmType = filmTypeEt.getText().toString();
         String filmVersion = filmVersionEt.getText().toString();
         String filmAddress = filmAddressEt.getText().toString();
@@ -361,6 +376,10 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
         String filmIntroduction = filmIntroductionEt.getText().toString();
         if (TextUtils.isEmpty(filmName)) {
             Toast.makeText(ActivityManageFilmInfo.this, "影片名称不能为空", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(filmPrice)) {
+            Toast.makeText(ActivityManageFilmInfo.this, "影片价格不能为空", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(filmType)) {
@@ -392,6 +411,24 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
             return;
         }
 
+        FilmData filmData = new FilmData();
+        if (!TextUtils.isEmpty(filmId)) {
+            filmData.setFilmId(filmId);
+        }
+        filmData.setFilmName(filmName);
+        filmData.setFilmPrice(filmPrice);
+        filmData.setFilmType(filmType);
+        filmData.setFilmVersion(filmVersion);
+        filmData.setFilmAddress(filmAddress);
+        filmData.setFilmTime(filmTime);
+        filmData.setFilmDirector(filmDirector);
+        filmData.setFilmStr(filmStr.toString());
+        filmData.setFilmIntroduction(filmIntroduction);
+        if (null != bundle) {
+            presenter.updateFilmInfo(filmData, imagePath);
+        } else {
+            presenter.uploadFilmInfo(filmData, imagePath);
+        }
     }
 
     @Override
@@ -403,5 +440,37 @@ public class ActivityManageFilmInfo extends ActionBarActivity implements View.On
     protected void onDestroy() {
         presenter.destroy();
         super.onDestroy();
+    }
+
+    @Override
+    public void showDialog(String msg) {
+        if (!dialog.isShowing()) {
+            dialog.setMessage(msg);
+            dialog.show();
+        }
+
+    }
+
+    @Override
+    public void hideDialog() {
+        if (null != dialog && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+    }
+
+    @Override
+    public void complete() {
+        if (null != dialog && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+        Toast.makeText(ActivityManageFilmInfo.this, "上传成功", Toast.LENGTH_SHORT).show();
+        setResult(RESULT_OK);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
     }
 }

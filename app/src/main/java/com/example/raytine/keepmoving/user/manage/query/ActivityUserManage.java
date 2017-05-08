@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.home.model.FilmData;
@@ -36,6 +37,7 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
     private ListView listView;
     private Button addNewFilmBtn;
     private ManageDialog dialog;
+    private FilmAdapter adapter;
 
     private UserManageContract.Presenter presenter;
     private List<FilmData> filmDataList = new ArrayList<>();
@@ -93,6 +95,7 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
                         startActivityForResult(intent, REQUEST_CODE);
                         break;
                     case 1:
+                        presenter.deleteFilm(film.getFilmId());
                         break;
                 }
             }
@@ -105,12 +108,23 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
         for (int i = 0; i < objectList.size(); i++) {
             filmDataList.add(i, (FilmData)objectList.get(i));
         }
-        FilmAdapter adapter = new FilmAdapter(ActivityUserManage.this, R.layout.film_item, filmDataList);
+        adapter = new FilmAdapter(ActivityUserManage.this, R.layout.film_item, filmDataList);
         listView.setAdapter(adapter);
     }
 
     @Override
     public void queryFailed(String msg) {
+    }
+
+    @Override
+    public void deleteSuccess(String msg) {
+        reloadFilm();
+        Toast.makeText(ActivityUserManage.this, "删除成功", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void deleteFailed(String msg) {
+
     }
 
     @Override
@@ -120,9 +134,21 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (REQUEST_CODE == requestCode) {
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (RESULT_OK == resultCode) {
+                    reloadFilm();
+                } else if (RESULT_CANCELED == resultCode) {
 
+                }
+                break;
         }
+    }
+
+    private void reloadFilm() {
+        adapter.clear();
+        adapter.notifyDataSetChanged();
+        initData();
     }
 
     @Override

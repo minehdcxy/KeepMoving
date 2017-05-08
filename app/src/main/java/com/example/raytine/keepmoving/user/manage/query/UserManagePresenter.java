@@ -37,6 +37,21 @@ public class UserManagePresenter implements UserManageContract.Presenter{
     }
 
     @Override
+    public void deleteFilm(String objectId) {
+        api.deleteFilm(objectId, new RequestResult() {
+            @Override
+            public void successfully(String msg, List<Object> objectList) {
+                view.deleteSuccess(msg);
+            }
+
+            @Override
+            public void failed(String msg) {
+                view.deleteFailed(msg);
+            }
+        });
+    }
+
+    @Override
     public void destroy() {
         view = null;
     }

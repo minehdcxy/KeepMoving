@@ -3,6 +3,7 @@ package com.example.raytine.keepmoving.api;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.AVQuery;
+import com.avos.avoscloud.DeleteCallback;
 import com.avos.avoscloud.FindCallback;
 import com.example.raytine.keepmoving.home.model.FilmData;
 
@@ -42,5 +43,17 @@ public class FilmSearchApi {
             }
         });
 
+    }
+
+    public void deleteFilm(String objectId, final RequestResult result) {
+        AVObject filmFolder = AVObject.createWithoutData("Film", objectId);
+        filmFolder.deleteInBackground(new DeleteCallback() {
+            @Override
+            public void done(AVException e) {
+                if (null == e) {
+                    result.successfully(null, null);
+                }
+            }
+        });
     }
 }
