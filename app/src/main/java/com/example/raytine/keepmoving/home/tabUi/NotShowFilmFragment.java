@@ -28,17 +28,16 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
- * Created by raytine on 2017/4/30.
+ * Created by raytine on 2017/5/9.
  */
 
-public class RecommendFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener, RecommendContract.View {
+public class NotShowFilmFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener, RecommendContract.View{
     private ListView listView;
     private TextView searchButton;
     private EditText searchContent;
     private List<FilmData> filmDataList = new ArrayList<>();
 
     private RecommendContract.Presenter presenter;
-    private FilmAdapter adapter;
 
     @Nullable
     @Override
@@ -52,7 +51,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
     }
 
     private void initDatas() {
-        presenter.searchAllFilm();
+        presenter.searchNotShowFilm();
     }
 
     private void initViews(View view) {
@@ -98,7 +97,7 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
         for (int i = 0; i < objectList.size(); i++) {
             filmDataList.add(i, (FilmData)objectList.get(i));
         }
-        FilmAdapter adapter = new FilmAdapter(getActivity(), R.layout.film_item, filmDataList);
+        NotShowFilmFragment.FilmAdapter adapter = new NotShowFilmFragment.FilmAdapter(getActivity(), R.layout.film_item, filmDataList);
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
     }
@@ -122,10 +121,10 @@ public class RecommendFragment extends Fragment implements View.OnClickListener,
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             View view;
-            final FilmHolder holder;
+            final NotShowFilmFragment.FilmHolder holder;
             if (convertView == null) {
                 view = LayoutInflater.from(context).inflate(R.layout.film_item, null);
-                holder = new FilmHolder();
+                holder = new NotShowFilmFragment.FilmHolder();
                 holder.imageView = (CircleImageView) view.findViewById(R.id.film_image);
                 holder.filmName = (TextView) view.findViewById(R.id.tv_film_name);
                 holder.filmIntroduction = (TextView) view.findViewById(R.id.tv_film_introduction);

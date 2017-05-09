@@ -39,6 +39,64 @@ public class RecommendPresenter implements RecommendContract.Presenter{
     }
 
     @Override
+    public void searchAbroadFilm() {
+        api.searchAvroadFilm(new FilmData(), new RequestResult() {
+            @Override
+            public void successfully(String msg, List<Object> objectList) {
+                view.successfully(objectList);
+            }
+
+            @Override
+            public void failed(String msg) {
+            }
+        });
+    }
+
+    @Override
+    public void searchHotFilm() {
+        api.searchHotFilm(new FilmData(), new RequestResult() {
+            @Override
+            public void successfully(String msg, List<Object> objectList) {
+                view.successfully(objectList);
+            }
+
+            @Override
+            public void failed(String msg) {
+            }
+        });
+    }
+
+    @Override
+    public void searchNotShowFilm() {
+        api.searchNotShowFilm(new FilmData(), new RequestResult() {
+            @Override
+            public void successfully(String msg, List<Object> objectList) {
+                view.successfully(objectList);
+            }
+
+            @Override
+            public void failed(String msg) {
+            }
+        });
+    }
+
+    @Override
+    public void searchFilm(String content) {
+        api.searchFilm(content, new RequestResult() {
+            @Override
+            public void successfully(String msg, List<Object> objectList) {
+                view.successfully(objectList);
+            }
+
+            @Override
+            public void failed(String msg) {
+
+            }
+        });
+
+    }
+
+    @Override
     public void destroy() {
 
     }

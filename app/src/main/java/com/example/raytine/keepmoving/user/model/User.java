@@ -1,5 +1,8 @@
 package com.example.raytine.keepmoving.user.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private String objectId;
@@ -10,6 +13,32 @@ public class User {
     private String address;
     private float wallet;
     private int type;
+    private Card card;
+
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
+    }
+
+    public static class Card{
+
+        private List<String> carList = new ArrayList<>();
+
+        public List<String> getCarList() {
+            return carList;
+        }
+
+        public void setCarList(List<String> carList) {
+            this.carList = carList;
+        }
+
+
+
+    }
 
     public String getObjectId() {
         return objectId;

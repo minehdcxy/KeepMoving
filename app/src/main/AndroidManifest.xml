@@ -16,7 +16,7 @@
     <application
         android:name=".application.MyLeanCloudApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/keep_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -55,6 +55,8 @@
         <activity android:name=".user.manage.query.ActivityUserManage" />
         <activity android:name=".user.manage.edit.ActivityManageFilmInfo"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".buyTickets.BuyFilmActivity" />
+
     </application>
 
 </manifest>

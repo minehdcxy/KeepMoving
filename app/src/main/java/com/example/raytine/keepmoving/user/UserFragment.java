@@ -48,8 +48,8 @@ public class UserFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initViews(View view) {
+
         userNameTv = (TextView) view.findViewById(R.id.user_name_tv);
-        userNameTv.setText(user.getNickname());
         userInfoLl = (LinearLayout) view.findViewById(R.id.user_info_ll);
         userManageLl = (LinearLayout) view.findViewById(R.id.user_manage_ll);
         userWalletLl = (LinearLayout) view.findViewById(R.id.user_wallet_ll);
@@ -82,6 +82,13 @@ public class UserFragment extends Fragment implements View.OnClickListener {
 
         userInfoLl.setOnClickListener(this);
         exit.setOnClickListener(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(user.getType() == 0)
+        userWalletTv.setText(String.valueOf(user.getWallet()));
     }
 
     @Override

@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.raytine.keepmoving.R;
+import com.example.raytine.keepmoving.home.tabUi.AbroadFilmFragment;
+import com.example.raytine.keepmoving.home.tabUi.HotFilmFragment;
+import com.example.raytine.keepmoving.home.tabUi.NotShowFilmFragment;
 import com.example.raytine.keepmoving.home.tabUi.RecommendFragment;
 
 import java.util.ArrayList;
@@ -38,9 +41,9 @@ public class HomeFragment extends Fragment {
     }
     private void initViewList() {
         viewList.add(new RecommendFragment());
-        viewList.add(new RecommendFragment());
-        viewList.add(new RecommendFragment());
-        viewList.add(new RecommendFragment());
+        viewList.add(new HotFilmFragment());
+        viewList.add(new NotShowFilmFragment());
+        viewList.add(new AbroadFilmFragment());
     }
 
     private void initTabTitle() {

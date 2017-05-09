@@ -2,6 +2,7 @@ package com.example.raytine.keepmoving.filmDetail;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
@@ -9,13 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SimpleCursorTreeAdapter;
 import android.widget.TextView;
 
+import com.avos.avoscloud.AVFile;
+import com.example.raytine.keepmoving.buyTickets.BuyFilmActivity;
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.home.model.FilmData;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,6 +32,7 @@ import java.util.List;
 public class FilmDetailActivity extends ActionBarActivity implements FilmDetailContract.View {
     private ListView cinemaList;
     private List<CinemaModel> cinemaModelList = new ArrayList<>();
+    private List<String> cinemaIdList = new ArrayList<>();
 
     private TextView filmName;
     private TextView filmType;
@@ -32,11 +40,17 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
     private TextView filmTime;
     private TextView filmDirector;
     private TextView filmVersion;
+    private ImageView filmImage;
     private ProgressDialog progressDialog;
 
     private FilmData filmData;
 
     private FilmDetailContract.Presenter presenter;
+
+    public static String CINEMA_MODEL = "CINEMA_MODEL";
+    public static String FILM_ID = "FILM_ID";
+    public static String CINEMA_ID = "CINEMA_ID";
+    public static String USER_MONEY = "USER_MONEY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +85,7 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
         filmDirector = (TextView) findViewById(R.id.tv_detail_film_director);
         filmType = (TextView) findViewById(R.id.tv_detail_film_type);
         filmVersion = (TextView) findViewById(R.id.tv_detail_film_version);
+        filmImage = (ImageView) findViewById(R.id.iv_film_detail);
 
     }
 
@@ -96,7 +111,7 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
     }
 
     @Override
-    public void loadSuccess(FilmData data) {
+    public void loadSuccess(final FilmData data) {
         filmData = data;
         filmName.setText("片名:" + data.getFilmName());
         filmDirector.setText("导演:" + data.getFilmDirector());
@@ -104,13 +119,24 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
         filmType.setText("类型:" + data.getFilmType());
         filmAddress.setText("发行地:" + data.getFilmAddress());
         filmVersion.setText("观影版本:" + data.getFilmVersion());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AVFile file = new AVFile("test.jpg", data.getFilmImage(), new HashMap<String, Object>());
+                        Picasso.with(FilmDetailActivity.this).load(file.getThumbnailUrl(true, 200, 200)).into(filmImage);
+                    }
+                });
+            }
+        }).start();
         String str = data.getFilmStr();
         String[] strArrays = str.split("\\|");
-        List<String> list = new ArrayList<>();
         for (int i = 0; i < strArrays.length; i++) {
-            list.add(strArrays[i].split(",")[0]);
+            cinemaIdList.add(strArrays[i].split(",")[0]);
         }
-        presenter.loadFilmCinemaMessage(list);
+        presenter.loadFilmCinemaMessage(cinemaIdList);
     }
 
     @Override
@@ -128,6 +154,7 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
         cinemaList.setAdapter(adapter);
         dismissDialog();
     }
+
 
     @Override
     public void loadCinemaFailed(String message) {
@@ -153,7 +180,7 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
 
         @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             FilmDetailHolder holder = null;
             View view;
             if (convertView == null) {
@@ -163,6 +190,7 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
                 holder.cinemaAddress = (TextView) view.findViewById(R.id.tv_item_cinema_address);
                 holder.cinemaTime = (TextView) view.findViewById(R.id.tv_item_cinema_time);
                 holder.filmPrice = (TextView) view.findViewById(R.id.tv_item_film_price);
+                holder.buy = (TextView) view.findViewById(R.id.tv_film_buy_tickets);
                 view.setTag(holder);
             } else {
                 view = convertView;
@@ -180,6 +208,19 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
                     holder.cinemaTime.setText("观影时间:"+strArrays[i].split(",")[1]);
                 }
             }
+            holder.buy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    CinemaModel cinemaModel = cinemaModelList.get(position);
+                    Intent intent = new Intent(FilmDetailActivity.this, BuyFilmActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(CINEMA_MODEL, cinemaModel);
+                    bundle.putString(FILM_ID, filmData.getFilmId());
+                    bundle.putFloat(USER_MONEY, Float.parseFloat(filmData.getFilmPrice()));
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, 1);
+                }
+            });
             return view;
         }
 
@@ -191,5 +232,15 @@ public class FilmDetailActivity extends ActionBarActivity implements FilmDetailC
         TextView cinemaAddress;
         TextView cinemaTime;
         TextView filmPrice;
+        TextView buy;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1){
+            progressDialog.show();
+            presenter.loadFilmCinemaMessage(cinemaIdList);
+        }
     }
 }

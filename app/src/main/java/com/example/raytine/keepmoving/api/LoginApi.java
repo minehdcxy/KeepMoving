@@ -13,6 +13,7 @@ import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.LogInCallback;
 import com.example.raytine.keepmoving.application.MyLeanCloudApplication;
 import com.example.raytine.keepmoving.user.model.User;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -56,10 +57,14 @@ public class LoginApi {
                 user.setAge(avObject.getInt("age"));
                 user.setAddress(avObject.getString("address"));
                 user.setWallet((float) avObject.getInt("wallet"));
+                User.Card card = new Gson().fromJson(avObject.getJSONObject("card").toString(), User.Card.class);
+                user.setCard(card);
                 Log.i(TAG, user.toString());
                 MyLeanCloudApplication.getIns().setUser(user);
             }
         });
     }
+
+
 
 }

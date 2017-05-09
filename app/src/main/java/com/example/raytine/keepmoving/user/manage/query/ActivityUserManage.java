@@ -17,12 +17,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.avos.avoscloud.AVFile;
 import com.example.raytine.keepmoving.R;
 import com.example.raytine.keepmoving.home.model.FilmData;
 import com.example.raytine.keepmoving.user.manage.edit.ActivityManageFilmInfo;
 import com.example.raytine.keepmoving.util.widget.ManageDialog;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -53,7 +56,7 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
     }
 
     private void initViews() {
-        manageBackIv = (ImageView) findViewById(R.id.user_manage_back_iv);
+        manageBackIv = (ImageView) findViewById(R.id.user_manage_back_iv );
         listView = (ListView) findViewById(R.id.user_manage_film_lv);
         addNewFilmBtn = (Button) findViewById(R.id.user_manage_add_btn);
 
@@ -174,9 +177,9 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
 
         @NonNull
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(final int position, View convertView, ViewGroup parent) {
             View view;
-            FilmHolder holder;
+            final FilmHolder holder;
             if (convertView == null) {
                 view = LayoutInflater.from(context).inflate(R.layout.film_item, null);
                 holder = new FilmHolder();
@@ -189,6 +192,19 @@ public class ActivityUserManage extends ActionBarActivity implements View.OnClic
                 view = convertView;
                 holder = (FilmHolder) view.getTag();
             }
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            AVFile file = new AVFile("test.jpg", filmDataList.get(position).getFilmImage(), new HashMap<String, Object>());
+                            Picasso.with(ActivityUserManage.this).load(file.getThumbnailUrl(true, 200, 200)).into(holder.imageView);
+                        }
+                    });
+                }
+            }).start();
             holder.filmName.setText(filmDataList.get(position).getFilmName());
             holder.filmIntroduction.setText(filmDataList.get(position).getFilmIntroduction());
             holder.filmPrice.setText(filmDataList.get(position).getFilmPrice());

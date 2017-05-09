@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
+import android.app.Activity;
 
 import com.avos.avoscloud.AVCloudQueryResult;
 import com.avos.avoscloud.AVException;
@@ -29,6 +30,12 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
+import org.json.JSONException;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import keepInterface.RequestResult;
@@ -112,6 +119,8 @@ public class FilmDetailApi {
                         model.setAddress(object.getString("cinemaAddress"));
                         model.setCinemaName(object.getString("cinemaName"));
                         model.setCinemaId(String.valueOf(object.getNumber("cinemaId")));
+                        model.setCinemaObjectId(object.getObjectId());
+                        model.setTicket(new Gson().fromJson(object.getJSONObject("tickets").toString(), CinemaModel.Ticket.class));
                         cinemaModelList.add(model);
                     }
                     result.successfully("success", cinemaModelList);
@@ -122,7 +131,6 @@ public class FilmDetailApi {
             }
         });
     }
-
     public void uploadPicture(String path, final RequestResult result) {
         this.result = result;
         try {
@@ -239,5 +247,4 @@ public class FilmDetailApi {
             }
         });// 保存到服务端
     }
-
 }

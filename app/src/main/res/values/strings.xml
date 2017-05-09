@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Keep Moving</string>
+    <string name="app_name">影池</string>
     <string name="bt_guide_start_text">开跑</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>

@@ -15,6 +15,10 @@ public class RecommendContract {
     }
     interface Presenter extends BasePresenter{
         void searchAllFilm();
+        void searchAbroadFilm();
+        void searchHotFilm();
+        void searchNotShowFilm();
+        void searchFilm(String content);
 
     }
 }
