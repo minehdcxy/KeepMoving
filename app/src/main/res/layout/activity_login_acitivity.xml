@@ -50,6 +50,7 @@
                     android:paddingLeft="5dp"
                     android:textSize="15sp"
                     android:inputType="phone"
+                    android:text="18246181829"
                     android:textColorHint="@color/low_black"
                     android:textColor="@color/low_black"
                     android:background="#40000000" />
@@ -82,6 +83,7 @@
                     android:hint="请输入密码"
                     android:paddingLeft="5dp"
                     android:textSize="15sp"
+                    android:text="123456"
                     android:textColor="@color/low_black"
                     android:inputType="textPassword"
                     android:textColorHint="@color/low_black" />

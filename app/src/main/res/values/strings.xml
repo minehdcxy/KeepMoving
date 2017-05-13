@@ -29,7 +29,26 @@
 
 
     <!-- String for tab title -->
-    <string name="tab_title_recommend">周</string>
-    <string name="tab_title_receive">月</string>
-    <string name="tab_title_reflect">年</string>
+    <string name="tab_title_recommend">入住</string>
+    <string name="tab_title_receive">查询</string>
+    <string name="tab_title_reflect">退房</string>
+
+
+    <string name="hello">Hello World, HotelSystemn!</string>
+    <string name="title">登陆</string>
+    <string name="username">用户名:</string>
+    <string name="pwd">密　码:</string>
+    <string name="type">类　型:</string>
+    <string name="login">login</string>
+    <string name="cancel">cancel</string>
+    <string name="register">register</string>
+    <string name="name">姓　名:</string>
+    <string name="sex">性　　别:</string>
+    <string name="man">男:</string>
+    <string name="woman">女:</string>
+    <string name="idCard">身份证号:</string>
+    <string name="timeIn">入住时间:</string>
+    <string name="timeSum">入住天数:</string>
+    <string name="roomNum">房间号:</string>
+    <string name="money">应付金额:</string>
 </resources>

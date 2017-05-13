@@ -7,8 +7,8 @@
     <color name="white">#ffffff</color>
     <color name="yellow">#FFCC66</color>
     <color name="dark_yellow">#FFCC00</color>
-    <color name="dark_green">#e7a953</color>
-    <color name="green">#ae7709</color>
+    <color name="dark_green">#9036be</color>
+    <color name="green">#7709ae</color>
     <color name="dark_transparent">#d0000000</color>
     <color name="low_black">#999999</color> <!-- 字体  浅黑 -->
     <color name="gray">#868484</color>

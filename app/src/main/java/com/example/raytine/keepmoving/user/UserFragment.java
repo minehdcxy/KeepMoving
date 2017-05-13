@@ -48,17 +48,6 @@ public class UserFragment extends Fragment implements View.OnClickListener {
         userInfoLl = (LinearLayout) view.findViewById(R.id.user_info_ll);
         userAdviseLl = (LinearLayout) view.findViewById(R.id.user_advise_ll);
         exit = (TextView) view.findViewById(R.id.user_exit_tv);
-
-        switch (user.getType()) {
-            case 0:
-                userAdviseLl.setVisibility(View.VISIBLE);
-                userAdviseLl.setOnClickListener(this);
-                break;
-            case 1:
-                userAdviseLl.setVisibility(View.GONE);
-                break;
-        }
-
         userInfoLl.setOnClickListener(this);
         exit.setOnClickListener(this);
     }

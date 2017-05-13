@@ -26,7 +26,7 @@ public class MyLeanCloudApplication extends Application {
     public void onCreate() {
         super.onCreate();
         ins = this;
-        AVOSCloud.initialize(this, "jG0qeLz4wa5pUmdgi5PgsWe8-gzGzoHsz", "PqIzcXBIm6UMGMwefcP95oxI");
+        AVOSCloud.initialize(this, "4K3lWTIRlvddgbuU0xkoakRE-gzGzoHsz", "ltx7gF8mmEiHihWR7jtK8XA4");
         AVOSCloud.useAVCloudCN();
     }
 

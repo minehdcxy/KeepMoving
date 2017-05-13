@@ -28,7 +28,7 @@
                 android:layout_gravity="center_horizontal"
                 android:textSize="21sp"
                 android:textColor="@color/white"
-                android:text="事妈"/>
+                android:text=""/>
 
         </LinearLayout>
 

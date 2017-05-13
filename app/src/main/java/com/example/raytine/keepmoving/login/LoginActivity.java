@@ -46,11 +46,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         quicklyRegister = (Button) findViewById(R.id.bt_quickly_register);
         quicklyRegister.setOnClickListener(this);
         login.setOnClickListener(this);
-
-        if (MyLeanCloudApplication.isDebug) {
-            phoneNumber.setText("18246181829");
-            password.setText("123456");
-        }
     }
 
     @Override
