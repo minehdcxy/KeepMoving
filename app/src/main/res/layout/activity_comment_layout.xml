@@ -61,11 +61,11 @@
             android:background="@null"
             android:textSize="15sp"
             android:layout_marginLeft="10dp"
-            android:layout_weight="1"/>
+            />
         <TextView
             android:id="@+id/tv_comment_commit"
             android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:textSize="15sp"
             android:text="提交"
             android:gravity="center"

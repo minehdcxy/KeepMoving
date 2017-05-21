@@ -20,8 +20,8 @@ public class CommentPresenter implements CommentContract.Presenter {
     }
 
     @Override
-    public void loadComment() {
-        api.loadComment(new RequestResult() {
+    public void loadComment(String tripId) {
+        api.loadComment(tripId, new RequestResult() {
             @Override
             public void successfully(String msg, List<Object> objectList) {
                 view.loadContentSuccess(msg, objectList);

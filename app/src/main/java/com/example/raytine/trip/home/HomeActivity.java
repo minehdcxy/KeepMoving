@@ -141,7 +141,7 @@ public class HomeActivity extends ActionBarActivity implements TripContract.View
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Intent intent = new Intent(this, TripContentActivity.class);
         Bundle bundle = new Bundle();
-        bundle.putSerializable("model", tripDatas.get(i));
+        bundle.putSerializable("model", tripDatas.get(i-1));
         intent.putExtras(bundle);
         startActivity(intent);
     }

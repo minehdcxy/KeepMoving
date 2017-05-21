@@ -19,6 +19,6 @@ public interface CommentContract {
     }
 
     interface Presenter extends BasePresenter{
-        void loadComment();
+        void loadComment(String tripId);
     }
 }

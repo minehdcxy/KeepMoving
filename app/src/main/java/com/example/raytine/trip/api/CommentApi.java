@@ -19,11 +19,11 @@ import keepInterface.RequestResult;
 public class CommentApi {
     private RequestResult requestResult;
 
-    public void loadComment(RequestResult result){
+    public void loadComment(String tripId, RequestResult result){
         this.requestResult = result;
         final List<Object> commentList = new ArrayList<>();
         AVQuery<AVObject> query = new AVQuery<>("comment");
-        query.whereExists("objectId");
+        query.whereEqualTo("tripId", tripId);
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {

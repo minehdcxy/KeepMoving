@@ -56,7 +56,7 @@ public class CommentActivity extends Activity implements CommentContract.View {
         tripId = getIntent().getStringExtra("tripId");
         userId = getIntent().getStringExtra("userId");
         showProgressDialog();
-        presenter.loadComment();
+        presenter.loadComment(tripId);
     }
 
     private void initViews() {
@@ -80,6 +80,8 @@ public class CommentActivity extends Activity implements CommentContract.View {
         for(int i = 0; i<objectList.size();i++){
             commentModelList.add((CommentModel) objectList.get(i));
         }
+        CommentAdapter adapter = new CommentAdapter(this, R.layout.item_comment_layout, commentModelList);
+        contentListView.setAdapter(adapter);
         dismissDialog();
     }
 
@@ -88,9 +90,9 @@ public class CommentActivity extends Activity implements CommentContract.View {
         dismissDialog();
     }
 
-    class CommentAdapter extends ArrayAdapter<TripData> {
-        private List<TripData> list = new ArrayList<>();
-        public CommentAdapter(Context context, int resource, List<TripData> objects) {
+    class CommentAdapter extends ArrayAdapter<CommentModel> {
+        private List<CommentModel> list = new ArrayList<>();
+        public CommentAdapter(Context context, int resource, List<CommentModel> objects) {
             super(context, resource, objects);
             this.list = objects;
         }
@@ -102,7 +104,7 @@ public class CommentActivity extends Activity implements CommentContract.View {
 
         @Nullable
         @Override
-        public TripData getItem(int position) {
+        public CommentModel getItem(int position) {
             return list.get(position);
         }
 
@@ -113,20 +115,21 @@ public class CommentActivity extends Activity implements CommentContract.View {
             ViewHolder holder;
             if(convertView == null){
                 holder  = new ViewHolder();
-                view = LayoutInflater.from(CommentActivity.this).inflate(R.layout.item_trip, null);
-                holder.tripDescribe = (TextView) view.findViewById(R.id.item_trip_describe);
+                view = LayoutInflater.from(CommentActivity.this).inflate(R.layout.item_comment_layout, null);
+                holder.content = (TextView) view.findViewById(R.id.tv_item_content);
                 view.setTag(holder);
             }else{
                 view = convertView;
                 holder = (ViewHolder) view.getTag();
             }
+            holder.content.setText(commentModelList.get(position).getContent());
 
             return view;
         }
     }
 
     class ViewHolder{
-        TextView tripDescribe;
+        TextView content;
     }
 
     private void showProgressDialog() {

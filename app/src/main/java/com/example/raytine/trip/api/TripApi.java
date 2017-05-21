@@ -39,6 +39,7 @@ public class TripApi {
                         data.setTripDate(object.getDate("createdAt"));
                         data.setTripUpvote(object.getInt("upovte"));
                         data.setImageUrl(object.getString("imageUrl"));
+                        data.setTripId(object.getObjectId());
                         data.setTripUserName(object.getString("tripUserName"));
                         org.json.JSONArray jsonArray = object.getJSONArray("daily");
                         List<TripData.DiaryTrip> diaryTripList = new ArrayList<>();
