@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@drawable/ic_tirp_bg">
+    <android.support.v7.widget.Toolbar
+        android:layout_marginTop="23dp"
+        android:id="@+id/home_view_toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/transparent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="长篇游记"
+            android:textSize="16sp"
+            android:textColor="@color/white" />
+        <TextView
+            android:id="@+id/iv_daily_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完成"
+            android:textColor="@color/white"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"/>
+    </android.support.v7.widget.Toolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cv_daily_user_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/bg_item_tirp"/>
+
+            <EditText
+                android:id="@+id/tv_daily_trip_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="游记名称"
+                android:background="@null"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="地址:"
+                android:background="@null"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"/>
+
+            <EditText
+                android:id="@+id/tv_daily_trip_address"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="游记名称"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:background="@null"
+                android:textColorHint="@color/white"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_commit_trip"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="提交"
+                android:textColor="@color/blue02"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lv_daily"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/orange_50_n"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_marginTop="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/iv_add_imageView"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/ic_tirp_image_add"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:layout_marginTop="40dp"
+                android:background="@color/gray_100_n">
+
+                <EditText
+                    android:id="@+id/tv_add_describe"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:hint="添加描述"
+                    android:textSize="12sp"
+                    android:background="@null"
+                    android:padding="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_time_day"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:gravity="center"
+                        android:text="2017.05.04"/>
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/blue02"/>
+                    <TextView
+                        android:id="@+id/tv_time_hour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="12:29"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_add_image"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="提交"
+            android:textColor="@color/blue02"
+            android:background="@drawable/bg_trip_style"
+            android:gravity="center"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

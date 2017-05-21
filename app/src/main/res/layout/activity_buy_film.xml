@@ -86,7 +86,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/bg_green_corner_style"/>
+                android:background="@drawable/bg_blue_corner_style"/>
             <TextView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
@@ -182,13 +182,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
-            <com.example.raytine.keepmoving.util.widget.BuyView
+            <com.example.raytine.trip.util.widget.BuyView
                 android:id="@+id/bv_buy_tickets"
                 android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
 
-            </com.example.raytine.keepmoving.util.widget.BuyView>
+            </com.example.raytine.trip.util.widget.BuyView>
 
 
         </LinearLayout>

@@ -60,14 +60,14 @@
     <color name="smart_tab_line_color">@color/line_light</color>
 
 
-    <color name="blue">#01baff</color>
-    <color name="blue02">#00beff</color>
+    <color name="blue">#20b9af</color>
+    <color name="blue02">#21a1a7</color>
     <color name="blue_press">#0086c5</color>
 
     <color name="blue200">#77aaff</color>
     <color name="blue100">#82b1ff</color>
 
-    <color name="bule_tab">#216fc0</color>
+    <color name="bule_tab">#0ca2b3</color>
 
     <!-- 文字色系 -->
     <color name="text_dark">#3c3d3d</color>

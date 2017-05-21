@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.raytine.keepmoving.guide.MainActivity">
+    tools:context="com.example.raytine.keepmoving.com.example.raytine.trip.guide.MainActivity">
     <android.support.v4.view.ViewPager
         android:id="@+id/keep_guide_pager"
         android:layout_width="match_parent"

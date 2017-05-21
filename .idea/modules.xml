@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/KeepMoving.iml" filepath="$PROJECT_DIR$/KeepMoving.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Trip.iml" filepath="$PROJECT_DIR$/Trip.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/navigation_bar/navigation_bar.iml" filepath="$PROJECT_DIR$/navigation_bar/navigation_bar.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange_50_n"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/home_view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/blue02">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:text="评论"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:id="@+id/lv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_comment"
+        android:layout_below="@+id/home_view_toolbar"
+        android:divider="@null"
+        android:scrollbars="none" />
+
+    <View
+        android:id="@+id/comment_divider"
+        android:layout_width="350dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/lv_comment"
+        android:background="@color/gray_300_n"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_comment_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="添加评论"
+            android:textColorHint="@color/gray_400_n"
+            android:text=""
+            android:textColor="@color/blue02"
+            android:background="@null"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/tv_comment_commit"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:text="提交"
+            android:gravity="center"
+            android:textColor="@color/blue02"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

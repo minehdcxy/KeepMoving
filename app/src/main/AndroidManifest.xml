@@ -12,9 +12,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="21"/>
+
 
     <application
-        android:name=".application.MyLeanCloudApplication"
+        android:name="com.example.raytine.trip.application.MyLeanCloudApplication"
         android:allowBackup="true"
         android:icon="@drawable/keep_icon"
         android:label="@string/app_name"
@@ -38,24 +40,24 @@
         <!-- 反馈组件（需要加入以下声明）START -->
         <activity android:name="com.avos.avoscloud.feedback.ThreadActivity"></activity>
         <!-- 反馈组件 END -->
-        <activity android:name=".guide.MainActivity">
+        <activity android:name="com.example.raytine.trip.guide.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".register.RegisterActivity" />
-        <activity android:name=".home.HomeActivity" />
-        <activity android:name=".user.info.ActivityUserInfo" />
-        <activity android:name=".user.ActivityUserCard" />
-        <activity android:name=".user.ActivityUserAdvise" />
-        <activity android:name=".filmDetail.FilmDetailActivity" />
-        <activity android:name=".user.manage.query.ActivityUserManage" />
-        <activity android:name=".user.manage.edit.ActivityManageFilmInfo"
+        <activity android:name="com.example.raytine.trip.login.LoginActivity" />
+        <activity android:name="com.example.raytine.trip.register.RegisterActivity" />
+        <activity android:name="com.example.raytine.trip.home.HomeActivity" />
+        <activity android:name="com.example.raytine.trip.user.info.ActivityUserInfo" />
+        <activity android:name="com.example.raytine.trip.user.ActivityUserCard" />
+        <activity android:name="com.example.raytine.trip.user.ActivityUserAdvise" />
+        <activity android:name="com.example.raytine.trip.tripContent.TripContentActivity"/>
+        <activity android:name="com.example.raytine.trip.user.UserActivity"/>
+        <activity android:name="com.example.raytine.trip.daily.AddDailyTripActivity"/>
+        <activity android:name="com.example.raytine.trip.tripContent.CommentActivity"/>
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".buyTickets.BuyFilmActivity" />
 
     </application>
 
