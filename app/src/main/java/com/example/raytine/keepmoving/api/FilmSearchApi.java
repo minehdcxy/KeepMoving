@@ -34,6 +34,7 @@ public class FilmSearchApi {
         AVQuery<AVObject> query = new AVQuery<>("Film");
         query.whereExists("objectId");
         query.findInBackground(new FindCallback<AVObject>() {
+            第三次修改
             @Override
             public void done(List<AVObject> list, AVException e) {
                 if(e == null){
