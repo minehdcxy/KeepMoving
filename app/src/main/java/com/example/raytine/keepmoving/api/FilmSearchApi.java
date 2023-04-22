@@ -29,6 +29,7 @@ public class FilmSearchApi {
 
     public void searchAllFilm(final FilmData Data, RequestResult result){
         this.requestResult = result;
+        第二次修改
         final List<Object> filmDataList = new ArrayList<>();
         AVQuery<AVObject> query = new AVQuery<>("Film");
         query.whereExists("objectId");
