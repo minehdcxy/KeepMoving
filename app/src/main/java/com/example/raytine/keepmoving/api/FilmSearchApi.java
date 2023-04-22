@@ -32,7 +32,7 @@ public class FilmSearchApi {
         第二次修改
         final List<Object> filmDataList = new ArrayList<>();
         AVQuery<AVObject> query = new AVQuery<>("Film");
-        query.whereExists("objectId");
+        query.whereExists("objectId");ssssss
         query.findInBackground(new FindCallback<AVObject>() {
             @Override
             public void done(List<AVObject> list, AVException e) {
