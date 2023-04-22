@@ -8,7 +8,7 @@ import android.widget.Toolbar;
 /**
  * Created by raytine on 2017/4/10.
  */
-
+第一次修改
 public abstract class BaseActivity extends Activity {
     private Toolbar toolbar;
     @Override
