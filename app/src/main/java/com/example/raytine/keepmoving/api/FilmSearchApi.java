@@ -22,6 +22,11 @@ public class FilmSearchApi {
     private RequestResult requestResult;
     private String TAG = "FilmSearchApi";
 
+
+    public void test(){
+        
+    }
+
     public void searchAllFilm(final FilmData Data, RequestResult result){
         this.requestResult = result;
         final List<Object> filmDataList = new ArrayList<>();
